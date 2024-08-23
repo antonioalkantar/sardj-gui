@@ -1,27 +1,39 @@
-# SardjGui
+# SARDJ
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+### Versiones de tecnologías:
 
-## Development server
+- [Angular CLI](https://angular.io/cli): 15.2.10
+- [NodeJS](https://nodejs.org/download/release/v18.10.0/): 18.10.0
+- [PrimeNG](https://www.primefaces.org/primeng-v15-lts/installation): 15.4.1
+- [PrimeIcons](https://www.primefaces.org/primeng-v14-lts/#/icons): 6.0.1
+- [PrimeFlex](https://primeflex.org/): 3.3.1
+- [TypesScript](https://www.typescriptlang.org/): 4.9.4
+- [RxJS](https://rxjs.dev/): 7.8.0
+- [Gráfica Base](https://www.gob.mx/guias/grafica/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Instalación
 
-## Code scaffolding
+- Instalar NodeJS: [Descargar](https://nodejs.org/download/release/v18.10.0/)
+- Instalar Angular CLI 15.2.10:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```console
+npm install -g @angular/cli@15.2.10
+```
 
-## Build
+- Ir a la rama de trabajo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```console
+git checkout 'rama-de-trabajo'
+```
 
-## Running unit tests
+- Ejecutar en la raiz del proyecto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```console
+npm install
+```
 
-## Running end-to-end tests
+- Levantar ambiente local:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```console
+ng serve
+```

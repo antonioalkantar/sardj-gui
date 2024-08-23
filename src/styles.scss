@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/primeng-custom';
+
+html {
+  font-size: 10px;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  padding-top: 60px;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.app-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sardj .container {
+  width: 100%;
+}
+.sardj .main-footer {
+  display: none;
+}
