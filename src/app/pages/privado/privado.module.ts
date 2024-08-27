@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PrivadoRoutingModule } from './privado-routing.module';
 import { PrivadoComponent } from './privado.component';
+import { HeaderPrivadoComponent } from './components/header-privado/header-privado.component';
 
 
 @NgModule({
   declarations: [
-    PrivadoComponent
+    PrivadoComponent,
+    HeaderPrivadoComponent
   ],
   imports: [
     CommonModule,
