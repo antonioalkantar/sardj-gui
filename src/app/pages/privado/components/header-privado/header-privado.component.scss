@@ -8,7 +8,7 @@ header {
   .title-primary {
     color: #bc955c;
     font-family: Montserrat;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 16.8px;
     text-align: left;
@@ -16,8 +16,8 @@ header {
   .bar {
     color: #fff;
     font-family: Montserrat;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 22px;
+
     line-height: 16.8px;
 
     margin: 0 10px;
@@ -25,7 +25,7 @@ header {
   .title-secondary {
     color: #fff;
     font-family: Montserrat;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 16.8px;
     text-align: left;
@@ -57,7 +57,7 @@ header {
         margin-left: 20px;
         .profile-name {
           font-family: Montserrat;
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 600;
           line-height: 16.8px;
           text-align: left;
@@ -66,7 +66,7 @@ header {
         .profile-position-state {
           .profile-position {
             font-family: Montserrat;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 400;
             line-height: 14.4px;
             text-align: left;
@@ -74,7 +74,7 @@ header {
           }
           .profile-bar {
             font-family: Montserrat;
-            font-size: 12px;
+            font-size: 18px;
             font-weight: 400;
             line-height: 14.4px;
             text-align: left;
@@ -83,32 +83,13 @@ header {
           }
           .profile-state {
             font-family: Montserrat;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 400;
             line-height: 14.4px;
             text-align: left;
             color: #fff;
           }
         }
-      }
-    }
-    .menu-button {
-      cursor: pointer;
-      margin-left: 20px;
-      background-color: #109c9c;
-      padding: 8px 8px;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      .bar {
-        display: inline-block;
-        height: 2px;
-        background-color: #fff;
-        width: 100%;
       }
     }
   }

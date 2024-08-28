@@ -1,0 +1,47 @@
+.subtitulo {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.5px;
+  text-align: left;
+}
+
+.icon-container {
+  border-radius: 50%;
+  border: 2px solid #e3f3f4;
+  padding: 4px;
+}
+
+.icon-up,
+.icon-down {
+  color: #36b1b9;
+  font-size: 8px;
+  font-weight: 600;
+  top: 1px;
+  position: relative;
+}
+
+:host ::ng-deep {
+  .p-panel .p-panel-header {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #c7eee8;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .p-panel .p-panel-content {
+    background: transparent;
+    border: none;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .p-panel .p-panel-header .p-panel-header-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: scale(1.5);
+  }
+  .p-panel .p-panel-header .p-panel-header-icon:focus {
+    box-shadow: none;
+  }
+}

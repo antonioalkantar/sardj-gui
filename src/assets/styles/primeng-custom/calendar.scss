@@ -1,0 +1,43 @@
+.p-calendar {
+  .p-datepicker-trigger {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #ced4da;
+    border-left: none;
+    &.p-button {
+      background-color: transparent;
+      color: #000;
+    }
+  }
+  .p-inputtext {
+    border-right: transparent;
+  }
+
+  .p-inputtext:enabled:hover + .p-datepicker-trigger {
+    border-color: #3b82f6;
+  }
+
+  .p-inputtext:enabled:focus + .p-datepicker-trigger {
+    border-color: #3b82f6;
+  }
+
+  .p-button:enabled:hover {
+    border-color: #3b82f6;
+    border-left-color: #3b82f6;
+    border-left-width: 1px;
+    border-left-style: solid;
+  }
+
+  .p-button:enabled:focus {
+    border-color: #3b82f6;
+    border-left-color: #3b82f6;
+    border-left-width: 1px;
+    border-left-style: solid;
+  }
+
+  thead {
+    th {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.p-button.p-button-primary,
+.p-buttonset.p-button-primary > .p-button,
+.p-splitbutton.p-button-primary > .p-button {
+  background: #10a16a;
+  border: 1px solid #10a16a;
+  border-radius: 6px;
+  padding: 9px 16px 9px 16px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+.p-disabled,
+.p-component:disabled {
+  opacity: 0.5;
+}
+
+.p-button.p-button-primary:enabled:hover,
+.p-buttonset.p-button-primary > .p-button:enabled:hover,
+.p-splitbutton.p-button-primary > .p-button:enabled:hover {
+  background: #00c793;
+  border: 1px solid #00c793;
+}
+.p-button.p-button-primary:enabled:focus {
+  box-shadow: none;
+}
+
+.p-button.p-button-outlined {
+  padding: 9px 16px 9px 16px;
+  border-radius: 6px;
+  color: #10a16a;
+  border-color: #10a16a;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.p-button.p-button-outlined:enabled:hover {
+  background: #3b82f60a;
+  color: #10a16a;
+  border: 1px solid;
+}
+
+.p-button:focus {
+  box-shadow: none;
+}
+
+//secondary
+.p-button.p-button-secondary,
+.p-buttonset.p-button-secondary > .p-button,
+.p-splitbutton.p-button-secondary > .p-button {
+  background: #f0f2fa;
+  border: 1px solid #f0f2fa;
+  border-radius: 6px;
+  padding: 9px 16px 9px 16px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: #6776a8;
+}
+
+.p-button.p-button-secondary:enabled:hover,
+.p-buttonset.p-button-secondary > .p-button:enabled:hover,
+.p-splitbutton.p-button-secondary > .p-button:enabled:hover {
+  background: #909abf;
+  border: 1px solid #909abf;
+  color: white;
+}
+.p-button.p-button-secondary:enabled:focus {
+  box-shadow: none;
+}
+
+.p-button.p-button-secondary.p-button-outlined,
+.p-buttonset.p-button-secondary > .p-button.p-button-outlined,
+.p-splitbutton.p-button-secondary > .p-button.p-button-outlined {
+  padding: 9px 16px 9px 16px;
+  border-radius: 6px;
+  color: #909abf;
+  border-color: #909abf;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+//danger
+.p-button.p-button-danger,
+.p-buttonset.p-button-danger > .p-button,
+.p-splitbutton.p-button-danger > .p-button {
+  background: #e4496d;
+  border: 1px solid #e4496d;
+  border-radius: 6px;
+  padding: 9px 16px 9px 16px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+}
+
+.p-button.p-button-danger:enabled:hover,
+.p-buttonset.p-button-danger > .p-button:enabled:hover,
+.p-splitbutton.p-button-danger > .p-button:enabled:hover {
+  background: #ea718d;
+  border: 1px solid #ea718d;
+  color: white;
+}
+.p-button.p-button-danger:enabled:focus {
+  box-shadow: none;
+}
+
+.p-button.p-button-danger.p-button-outlined,
+.p-buttonset.p-button-danger > .p-button.p-button-outlined,
+.p-splitbutton.p-button-danger > .p-button.p-button-outlined {
+  padding: 9px 16px 9px 16px;
+  border-radius: 6px;
+  color: #f19fb2;
+  border-color: #f19fb2;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}

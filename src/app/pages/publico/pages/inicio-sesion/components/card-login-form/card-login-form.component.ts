@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-login-form',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CardLoginFormComponent implements OnInit {
   form!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
     this.form = this.fb.group({
       username: [{ value: null, disabled: false }, [Validators.required]],
@@ -18,7 +19,8 @@ export class CardLoginFormComponent implements OnInit {
     });
   }
   iniciarSesion(): void {
-    if (this.form.invalid) return;
-    console.log(this.form.value);
+    this.router.navigate(['/privado'], { relativeTo: this.activatedRoute });
+    // if (this.form.invalid) return;
+    // console.log(this.form.value);
   }
 }

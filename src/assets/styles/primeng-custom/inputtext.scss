@@ -1,0 +1,16 @@
+.p-inputtext {
+  border-radius: 4px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  &:focus {
+    box-shadow: none;
+  }
+}
+.p-inputtext:enabled:hover {
+  box-shadow: none;
+}
+.p-inputtext:enabled:focus {
+  box-shadow: none;
+}

@@ -7,7 +7,17 @@ const routes: Routes = [
     path: '',
     component: PrivadoComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full',
+      },
       { path: 'inicio', loadChildren: () => import('./pages/inicio/inicio.module').then((m) => m.InicioModule) },
+      {
+        path: 'consultar-registros',
+        loadChildren: () =>
+          import('./pages/consulta-registro/consulta-registro.module').then((m) => m.ConsultaRegistroModule),
+      },
     ],
   },
 ];

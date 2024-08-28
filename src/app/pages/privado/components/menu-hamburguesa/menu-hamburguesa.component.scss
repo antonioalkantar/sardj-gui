@@ -1,0 +1,71 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-button {
+  cursor: pointer;
+  margin-left: 20px;
+  background-color: #109c9c;
+  padding: 8px 8px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  .bar {
+    display: inline-block;
+    height: 2px;
+    background-color: #fff;
+    width: 100%;
+  }
+}
+
+:host ::ng-deep {
+  .nuevo-registro-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../../../../../assets/images/icons/nuevo-registro.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .p-menu {
+    padding: 0;
+    overflow: hidden;
+    .p-menu-separator {
+      width: 90%;
+      margin: 0.25rem auto;
+    }
+    .p-menuitem-link:hover {
+      .nuevo-registro-icon {
+        background-image: url('../../../../../assets/images/icons/nuevo-registro-white.svg');
+      }
+    }
+    .p-menuitem-icon {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16.8px;
+      text-align: left;
+      margin-right: 16px;
+    }
+    .p-menuitem-text {
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16.8px;
+      text-align: left;
+    }
+    .p-menuitem-link:not(.p-disabled):hover {
+      background-color: #109c9c;
+      .p-menuitem-icon {
+        color: white;
+      }
+      .p-menuitem-text {
+        color: white;
+      }
+    }
+  }
+}

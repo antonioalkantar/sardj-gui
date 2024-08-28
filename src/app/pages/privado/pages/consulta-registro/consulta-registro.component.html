@@ -1,0 +1,88 @@
+<p-card>
+  <form [formGroup]="busquedaForm">
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label for="idRequerimiento" class="control-label">ID de requerimiento</label>
+        <input pInputText type="text" class="w-full" id="idRequerimiento" formControlName="idRequerimiento" />
+      </div>
+      <div class="col-md-3">
+        <label for="idEstatus" class="control-label">Estatus</label>
+        <p-dropdown formControlName="idEstatus" styleClass="w-full" [options]="estatus"></p-dropdown>
+      </div>
+      <div class="col-md-3">
+        <label for="fechaNotificacion" class="control-label">Fecha de notificación</label>
+        <p-calendar
+          formControlName="fechaNotificacion"
+          [showTime]="true"
+          styleClass="w-full"
+          [readonlyInput]="true"
+          [showIcon]="true">
+          <ng-template pTemplate="triggericon">
+            <img src="assets/images/icons/calendar.svg" />
+          </ng-template>
+        </p-calendar>
+      </div>
+      <div class="col-md-3">
+        <div class="flex ml-2 justify-content-between">
+          <label for="fechaVencimiento" class="control-label flex align-items-end">Fecha de vencimiento</label>
+          <div class="flex ml-3">
+            <div class="flex align-items-center mb-1">
+              <label for="administrativo" class="mr-3 control-label mb-0 font-normal cursor-pointer">
+                Administrativo
+              </label>
+              <p-radioButton formControlName="radioOpcion" value="1" inputId="administrativo"></p-radioButton>
+            </div>
+            <div class="flex align-items-center ml-3 mb-1">
+              <label for="efectivo" class="mr-3 control-label mb-0 font-normal cursor-pointer">Efectivo</label>
+              <p-radioButton formControlName="radioOpcion" value="2" inputId="efectivo"></p-radioButton>
+            </div>
+          </div>
+        </div>
+        <p-calendar
+          formControlName="fechaVencimiento"
+          [showTime]="true"
+          styleClass="w-full"
+          [readonlyInput]="true"
+          [showIcon]="true">
+          <ng-template pTemplate="triggericon">
+            <img src="assets/images/icons/calendar.svg" />
+          </ng-template>
+        </p-calendar>
+      </div>
+    </div>
+    <p-panel [toggleable]="true" [collapsed]="true">
+      <ng-template pTemplate="header">
+        <div class="flex align-items-center">
+          <img src="assets/images/icons/busqueda.svg" />
+          <span class="subtitulo ml-3">Búsqueda avanzada</span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="headericons" let-expanded>
+        <div class="flex align-items-center justify-content-center icon-container">
+          <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+          <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+        </div>
+      </ng-template>
+      <div class="row">
+        <div class="col-md-3">
+          <label for="numeroOficio" class="control-label">Número de oficio</label>
+          <input pInputText type="text" class="w-full" id="numeroOficio" formControlName="numeroOficio" />
+        </div>
+        <div class="col-md-3">
+          <label for="idSubestatus" class="control-label">Subestatus</label>
+          <p-dropdown formControlName="idSubestatus" styleClass="w-full" [options]="estatus"></p-dropdown>
+        </div>
+        <div class="col-md-3">
+          <label for="idAbogadoResponsable" class="control-label">Abogado responsable</label>
+          <p-dropdown formControlName="idAbogadoResponsable" styleClass="w-full" [options]="estatus"></p-dropdown>
+        </div>
+      </div>
+    </p-panel>
+    <div class="row mt-5">
+      <div class="col-md-12 flex justify-content-end">
+        <p-button label="Limpiar" [disabled]="true" styleClass="p-button-secondary"></p-button>
+        <p-button label="Buscar" [disabled]="true" styleClass="p-button-primary ml-3"></p-button>
+      </div>
+    </div>
+  </form>
+</p-card>
