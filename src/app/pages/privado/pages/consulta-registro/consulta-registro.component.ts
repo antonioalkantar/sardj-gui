@@ -13,6 +13,96 @@ export class ConsultaRegistroComponent implements OnInit {
     { label: 'Opción 1', value: 1 },
     { label: 'Opción 2', value: 2 },
   ];
+  tableData: any[] = [
+    {
+      requerimiento: '0000010/2024-001-1',
+      ooad: 'Baja California Sur',
+      numeroOficio: '3012060M12/1519/2023',
+      abogado: 'José Francisco González Medina',
+      fechaNotificacion: '15/07/2024 - 10:00hrs',
+      estatus: 4,
+      registrado: true,
+      abogadoAsignado: true,
+      generandoOficio: true,
+      porValidarOficio: true,
+      respuestaEnviada: true,
+      requerimientoConcluido: true,
+    },
+    {
+      requerimiento: '0000010/2024-001-1',
+      ooad: 'Baja California Sur',
+      numeroOficio: '3012060M12/1519/2023',
+      abogado: 'José Francisco González Medina',
+      fechaNotificacion: '15/07/2024 - 10:00hrs',
+      estatus: 0,
+      registrado: true,
+      abogadoAsignado: true,
+      generandoOficio: true,
+      porValidarOficio: false,
+      respuestaEnviada: false,
+      requerimientoConcluido: false,
+    },
+    {
+      requerimiento: '0000010/2024-001-1',
+      ooad: 'Baja California Sur',
+      numeroOficio: '3012060M12/1519/2023',
+      abogado: 'José Francisco González Medina',
+      fechaNotificacion: '15/07/2024 - 10:00hrs',
+      estatus: 1,
+      registrado: true,
+      abogadoAsignado: true,
+      generandoOficio: true,
+      porValidarOficio: true,
+      respuestaEnviada: true,
+      requerimientoConcluido: false,
+    },
+    {
+      requerimiento: '0000010/2024-001-1',
+      ooad: 'Baja California Sur',
+      numeroOficio: '3012060M12/1519/2023',
+      abogado: 'José Francisco González Medina',
+      fechaNotificacion: '15/07/2024 - 10:00hrs',
+      estatus: 0,
+      registrado: true,
+      abogadoAsignado: false,
+      generandoOficio: false,
+      porValidarOficio: false,
+      respuestaEnviada: false,
+      requerimientoConcluido: false,
+    },
+    {
+      requerimiento: '0000010/2024-001-1',
+      ooad: 'Baja California Sur',
+      numeroOficio: '3012060M12/1519/2023',
+      abogado: 'José Francisco González Medina',
+      fechaNotificacion: '15/07/2024 - 10:00hrs',
+      estatus: 0,
+      registrado: true,
+      abogadoAsignado: true,
+      generandoOficio: false,
+      porValidarOficio: false,
+      respuestaEnviada: false,
+      requerimientoConcluido: false,
+    },
+    {
+      requerimiento: '0000010/2024-001-1',
+      ooad: 'Baja California Sur',
+      numeroOficio: '3012060M12/1519/2023',
+      abogado: 'José Francisco González Medina',
+      fechaNotificacion: '15/07/2024 - 10:00hrs',
+      estatus: 0,
+      registrado: true,
+      abogadoAsignado: true,
+      generandoOficio: true,
+      porValidarOficio: true,
+      respuestaEnviada: false,
+      requerimientoConcluido: false,
+    },
+  ];
+
+  first: number = 0;
+
+  rows: number = 10;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -31,5 +121,10 @@ export class ConsultaRegistroComponent implements OnInit {
       idSubestatus: [{ value: null, disabled: false }, []],
       idAbogadoResponsable: [{ value: null, disabled: false }, []],
     });
+  }
+
+  onPageChange(event: any): void {
+    this.first = event.first;
+    this.rows = event.rows;
   }
 }

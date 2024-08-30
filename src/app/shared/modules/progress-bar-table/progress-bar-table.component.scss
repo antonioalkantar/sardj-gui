@@ -1,0 +1,32 @@
+.figure-container {
+  position: relative;
+  min-height: 35px;
+  .figure {
+    background-color: #10a16a;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    .left-bar {
+      display: inline-block;
+      width: 500px;
+      height: 3px;
+      position: absolute;
+      top: 4px;
+      background-color: #10a16a;
+      right: 0;
+    }
+    .right-bar {
+      display: inline-block;
+      width: 500px;
+      height: 3px;
+      position: absolute;
+      top: 4px;
+      background-color: #10a16a;
+    }
+  }
+}

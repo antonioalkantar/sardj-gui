@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/styles/primeng-custom';
+@import 'assets/styles/colors';
 
 html {
-  font-size: 10px;
+  font-size: 12px;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
@@ -39,9 +40,14 @@ img {
 
 .control-label {
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 14.63px;
   text-align: left;
   color: #58595c;
+}
+
+.link {
+  color: #0c8ce9;
+  text-decoration: underline;
 }

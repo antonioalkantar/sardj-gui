@@ -1,0 +1,37 @@
+.tag {
+  padding: 2px 5px 2px 5px;
+  border-radius: 20px;
+}
+
+.tag-text {
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: left;
+}
+
+.info {
+  background-color: #d8edff;
+  .tag-text {
+    color: #54afff;
+  }
+}
+.warning {
+  background-color: #ffeadb;
+  .tag-text {
+    color: #fd9535;
+  }
+}
+.danger {
+  background-color: #f8d7da;
+  .tag-text {
+    color: #dc3545;
+  }
+}
+.success {
+  background-color: #daf8d7;
+  .tag-text {
+    color: #5fd350;
+  }
+}

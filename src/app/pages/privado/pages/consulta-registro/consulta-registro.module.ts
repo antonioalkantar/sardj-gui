@@ -11,6 +11,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { EstatusTagModule } from 'src/app/shared/modules/estatus-tag/estatus-tag.module';
+import { PaginatorModule } from 'primeng/paginator';
+import { ProgressBarTableModule } from 'src/app/shared/modules/progress-bar-table/progress-bar-table.module';
 
 @NgModule({
   declarations: [ConsultaRegistroComponent],
@@ -25,6 +29,10 @@ import { ButtonModule } from 'primeng/button';
     RadioButtonModule,
     PanelModule,
     ButtonModule,
+    TableModule,
+    EstatusTagModule,
+    PaginatorModule,
+    ProgressBarTableModule,
   ],
 })
 export class ConsultaRegistroModule {}

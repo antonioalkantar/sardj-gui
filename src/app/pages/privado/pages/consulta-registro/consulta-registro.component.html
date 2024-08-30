@@ -85,4 +85,161 @@
       </div>
     </div>
   </form>
+  <p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }" [scrollable]="true" styleClass="mt-5">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h6 class="font-semibold my-0">Bandeja</h6>
+        <div class="flex justify-content-end align-items-end">
+          <div class="gris-tono-4">
+            <span class="font-bold">R=</span>
+            <span class="font-normal">Registrado</span>
+          </div>
+          <div class="ml-5 gris-tono-4">
+            <span class="font-bold">AA=</span>
+            <span class="ml-1 font-normal">Abogado Asignado</span>
+          </div>
+          <div class="ml-5 gris-tono-4">
+            <span class="font-bold">GO=</span>
+            <span class="ml-1 font-normal">Generando Oficio</span>
+          </div>
+          <div class="ml-5 gris-tono-4">
+            <span class="font-bold">VO=</span>
+            <span class="ml-1 font-normal">Por Validar Oficio</span>
+          </div>
+          <div class="ml-5 gris-tono-4">
+            <span class="font-bold">RE=</span>
+            <span class="ml-1 font-normal">Respuesta Enviada</span>
+          </div>
+          <div class="ml-5 gris-tono-4">
+            <span class="font-bold">RC=</span>
+            <span class="ml-1 font-normal">Requerimiento Concluido</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!--Se tuvo que asignar de manera estatica el valor 'right' de las celdas porque primeng tiene un bug cuando hay multiples frozen columns-->
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width: 150px">ID de requerimiento</th>
+        <th style="min-width: 20px"></th>
+        <th style="min-width: 165px">OOAD</th>
+        <th style="min-width: 175px">Número de oficio</th>
+        <th style="min-width: 220px">Abogado</th>
+        <th style="min-width: 180px">Fecha y horario de notificación</th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="min-width: 140px; background-color: var(--verde-secundario4); right: 480px">
+          Estatus
+        </th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="text-align: center; min-width: 80px; background-color: var(--verde-secundario3); right: 400px">
+          R
+        </th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="text-align: center; min-width: 80px; background-color: var(--verde-secundario4); right: 320px">
+          AA
+        </th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="text-align: center; min-width: 80px; background-color: var(--verde-secundario4); right: 240px">
+          GO
+        </th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="text-align: center; min-width: 80px; background-color: var(--verde-secundario3); right: 160px">
+          VO
+        </th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="text-align: center; min-width: 80px; background-color: var(--verde-secundario4); right: 80px">
+          RE
+        </th>
+        <th
+          pFrozenColumn
+          alignFrozen="right"
+          style="text-align: center; min-width: 80px; background-color: var(--verde-secundario3); right: 0">
+          RC
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td>
+          <span class="link">{{ row.requerimiento }}</span>
+        </td>
+        <td>
+          <a class="cursor-pointer"><img src="assets/images/icons/ellipsis.svg" width="5" /></a>
+        </td>
+        <td>{{ row.ooad }}</td>
+        <td>{{ row.numeroOficio }}</td>
+        <td>{{ row.abogado }}</td>
+        <td>{{ row.fechaNotificacion }}</td>
+        <td pFrozenColumn alignFrozen="right" style="right: 480px">
+          <app-estatus-tag *ngIf="row.estatus === 4" severity="success" label="Completa" />
+          <app-estatus-tag *ngIf="row.estatus === 1" severity="info" label="Otras áreas" />
+          <!-- <app-estatus-tag severity="danger" label="Sin info." /> -->
+          <!-- <app-estatus-tag severity="warning" label="Incompleta" /> -->
+        </td>
+        <td pFrozenColumn alignFrozen="right" style="right: 400px; padding: 0; overflow-x: hidden">
+          <app-progress-bar-table *ngIf="row.registrado" [showRightBar]="row.abogadoAsignado" />
+        </td>
+        <td pFrozenColumn alignFrozen="right" style="right: 320px; padding: 0; overflow-x: hidden">
+          <app-progress-bar-table
+            *ngIf="row.abogadoAsignado"
+            [showLeftBar]="row.registrado"
+            [showRightBar]="row.generandoOficio" />
+        </td>
+        <td pFrozenColumn alignFrozen="right" style="right: 240px; padding: 0; overflow-x: hidden">
+          <app-progress-bar-table
+            *ngIf="row.generandoOficio"
+            [showLeftBar]="row.abogadoAsignado"
+            [showRightBar]="row.porValidarOficio" />
+        </td>
+        <td pFrozenColumn alignFrozen="right" style="right: 160px; padding: 0; overflow-x: hidden">
+          <app-progress-bar-table
+            *ngIf="row.porValidarOficio"
+            [showLeftBar]="row.generandoOficio"
+            [showRightBar]="row.respuestaEnviada" />
+        </td>
+        <td pFrozenColumn alignFrozen="right" style="right: 80px; padding: 0; overflow-x: hidden">
+          <app-progress-bar-table
+            *ngIf="row.respuestaEnviada"
+            [showLeftBar]="row.porValidarOficio"
+            [showRightBar]="row.requerimientoConcluido" />
+        </td>
+        <td pFrozenColumn alignFrozen="right" style="right: 0; padding: 0; overflow-x: hidden">
+          <app-progress-bar-table *ngIf="row.requerimientoConcluido" [showLeftBar]="row.respuestaEnviada" />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator
+    styleClass="justify-content-end"
+    [showFirstLastIcon]="false"
+    (onPageChange)="onPageChange($event)"
+    [first]="first"
+    [rows]="rows"
+    [totalRecords]="120"
+    [rowsPerPageOptions]="[10, 20, 30]">
+    <ng-template pTemplate="previouspagelinkicon">
+      <div class="flex align-items-center">
+        <span class="pi pi-chevron-left text-xl font-normal mr-2"></span>
+        <span class="font-semibold mr-5">Anterior</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="nextpagelinkicon">
+      <div class="flex align-items-center">
+        <span class="font-semibold ml-5">Siguiente</span>
+        <span class="pi pi-chevron-right text-xl font-normal ml-2"></span>
+      </div>
+    </ng-template>
+  </p-paginator>
 </p-card>

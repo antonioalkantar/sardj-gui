@@ -1,0 +1,14 @@
+.p-datatable .p-datatable-header {
+  background-color: var(--gris-principal-05);
+  padding: 14px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--gris-principal-05_5);
+}
+
+.p-datatable .p-datatable-header {
+  border: none;
+}

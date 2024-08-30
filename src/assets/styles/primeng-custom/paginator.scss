@@ -1,0 +1,33 @@
+.p-paginator {
+  background-color: var(--gris-principal-05);
+  .p-dropdown {
+    display: none;
+  }
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: #10a16a;
+  border: 3px solid rgb(166 216 197);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  font-size: 14px;
+}
+
+.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.p-paginator {
+  .p-link:focus {
+    box-shadow: none;
+  }
+}
