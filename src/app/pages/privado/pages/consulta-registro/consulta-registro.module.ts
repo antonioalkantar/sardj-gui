@@ -15,6 +15,7 @@ import { TableModule } from 'primeng/table';
 import { EstatusTagModule } from 'src/app/shared/modules/estatus-tag/estatus-tag.module';
 import { PaginatorModule } from 'primeng/paginator';
 import { ProgressBarTableModule } from 'src/app/shared/modules/progress-bar-table/progress-bar-table.module';
+import { TitleBarModule } from 'src/app/shared/modules/title-bar/title-bar.module';
 
 @NgModule({
   declarations: [ConsultaRegistroComponent],
@@ -33,6 +34,7 @@ import { ProgressBarTableModule } from 'src/app/shared/modules/progress-bar-tabl
     EstatusTagModule,
     PaginatorModule,
     ProgressBarTableModule,
+    TitleBarModule,
   ],
 })
 export class ConsultaRegistroModule {}

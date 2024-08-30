@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+.title-bar {
+  display: flex;
+  background-color: #fff;
+  padding: 16px;
+  border-bottom: 1px solid #dee3f2;
+  display: flex;
+  align-items: center;
+  button {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px 0px #54545429;
+    border: none;
+  }
+  .title {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.6px;
+    text-align: left;
+    margin: 0;
+  }
+}
+
+.bar {
+  display: inline-block;
+  background-color: #dddddd;
+  width: 2px;
+  height: 20px;
+}

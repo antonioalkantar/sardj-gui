@@ -1,0 +1,8 @@
+<div class="title-bar">
+  <button class="flex align-items-center justify-content-center" *ngIf="route" (click)="navigate()">
+    <img src="assets/images/icons/left-green-arrow.svg" />
+  </button>
+  <span class="bar mx-4"></span>
+  <h1 class="title mr-4">{{ label }}</h1>
+  <ng-content></ng-content>
+</div>
