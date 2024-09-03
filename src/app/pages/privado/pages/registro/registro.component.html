@@ -1,0 +1,141 @@
+<app-title-bar route="../consultar-registros" label="Registro" />
+<div class="px-4">
+  <h2 class="subtitulo-seccion">Información general</h2>
+  <p-card>
+    <form [formGroup]="registroForm">
+      <ng-container formGroupName="informacionGeneral">
+        <div class="row mb-4">
+          <div class="col-md-9">
+            <label for="autoridadSolicitante" class="control-label">Autoridad solicitante</label>
+            <input
+              pInputText
+              type="text"
+              class="w-full"
+              id="autoridadSolicitante"
+              formControlName="autoridadSolicitante" />
+          </div>
+          <div class="col-md-3">
+            <label for="numeroOficio" class="control-label">Número de oficio</label>
+            <input pInputText type="text" class="w-full" id="numeroOficio" formControlName="numeroOficio" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="fechaOficio" class="control-label">Fecha de oficio</label>
+            <p-calendar
+              formControlName="fechaOficio"
+              [showTime]="false"
+              styleClass="w-full"
+              [readonlyInput]="true"
+              [showIcon]="true">
+              <ng-template pTemplate="triggericon">
+                <img src="assets/images/icons/calendar.svg" />
+              </ng-template>
+            </p-calendar>
+          </div>
+          <div class="col-md-3">
+            <label for="fechaHoraNotificacion" class="control-label">Fecha y hora de notificación</label>
+            <p-calendar
+              formControlName="fechaHoraNotificacion"
+              [showTime]="true"
+              styleClass="w-full"
+              [readonlyInput]="true"
+              [showIcon]="true">
+              <ng-template pTemplate="triggericon">
+                <img src="assets/images/icons/calendar.svg" />
+              </ng-template>
+            </p-calendar>
+          </div>
+          <div class="col-md-3">
+            <label for="fechaHoraVenAdmin" class="control-label">Fecha y hora de vencimiento administrativo</label>
+            <p-calendar
+              formControlName="fechaHoraVenAdmin"
+              [showTime]="true"
+              styleClass="w-full"
+              [readonlyInput]="true"
+              [showIcon]="true">
+              <ng-template pTemplate="triggericon">
+                <img src="assets/images/icons/calendar.svg" />
+              </ng-template>
+            </p-calendar>
+          </div>
+          <div class="col-md-3">
+            <label for="fechaHoraVenEfectivo" class="control-label">Fecha y hora de vencimiento efectivo</label>
+            <p-calendar
+              formControlName="fechaHoraVenEfectivo"
+              [showTime]="true"
+              styleClass="w-full"
+              [readonlyInput]="true"
+              [showIcon]="true">
+              <ng-template pTemplate="triggericon">
+                <img src="assets/images/icons/calendar.svg" />
+              </ng-template>
+            </p-calendar>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <label for="tipoJuicio" class="control-label">Tipo de juicio</label>
+            <p-dropdown formControlName="tipoJuicio" styleClass="w-full" [options]="tiposJuicios"></p-dropdown>
+          </div>
+          <div class="col-md-3">
+            <label for="expedienteParte1" class="control-label">Autoridad solicitante</label>
+            <div class="flex align-items-center">
+              <input
+                pInputText
+                type="text"
+                class="w-full text-center"
+                id="expedienteParte1"
+                formControlName="expedienteParte1" />
+              <span class="text-3xl inline-block mx-3 gris-principal-01">/</span>
+              <input
+                pInputText
+                type="text"
+                class="w-full text-center"
+                id="expedienteParte2"
+                formControlName="expedienteParte2" />
+              <input
+                pInputText
+                type="text"
+                class="w-full text-center ml-3"
+                id="expedienteParte3"
+                formControlName="expedienteParte3" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="expedienteParte1" class="control-label">Localización del requerimiento (opcional)</label>
+            <span class="p-input-icon-right w-full">
+              <i class="pi pi-search"></i>
+              <input type="text" pInputText class="w-full" formControlName="localizacionReq" />
+            </span>
+          </div>
+          <div class="col-md-3">
+            <label for="digitalizarReq" class="control-label">Digitalizar requerimiento</label>
+            <app-upload-control
+              label="Arrastra aquí el archivo o haz clic para seleccionar"
+              [allowedTypes]="['application/pdf']"
+              pathImageIcon="assets/images/icons/pdf-icon.svg"
+              formControlName="digitalizarReq"></app-upload-control>
+            <span class="message-file">
+              Formato permitido PDF y peso máximo 10 Megas:
+              {{
+                informacionGeneral['digitalizarReq'].value?.length
+                  ? informacionGeneral['digitalizarReq'].value?.length
+                  : 0
+              }}
+
+              {{
+                !informacionGeneral['digitalizarReq'].value?.length ||
+                informacionGeneral['digitalizarReq'].value?.length === 0 ||
+                informacionGeneral['digitalizarReq'].value?.length > 1
+                  ? 'Archivos'
+                  : 'Archivo'
+              }}
+            </span>
+          </div>
+        </div>
+      </ng-container>
+    </form>
+  </p-card>
+</div>

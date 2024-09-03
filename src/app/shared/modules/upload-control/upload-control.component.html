@@ -1,0 +1,16 @@
+<input type="file" class="hidden" [multiple]="maxFiles > 0" #fileInput (change)="fileBrowseHandler($event)" />
+<div
+  class="file-upload cursor-pointer"
+  (click)="handleClick($event)"
+  (drop)="onDrop($event)"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)">
+  <span *ngIf="files === null || files.length === 0" class="file-upload-empty">
+    {{ label }}
+  </span>
+  <div *ngFor="let file of files" class="file-item">
+    <img [src]="pathImageIcon" alt="file" />
+    <span>{{ file.name }}</span>
+    <span class="pi pi-times-circle cursor-pointer" (click)="removeFile($event, file)"></span>
+  </div>
+</div>

@@ -15,7 +15,7 @@ export class MenuHamburguesaComponent implements OnInit {
       {
         label: 'Nuevo registro',
         icon: 'nuevo-registro-icon',
-        routerLink: '/privado/consultar-registros',
+        routerLink: '/privado/registro',
         command: () => {},
       },
       {

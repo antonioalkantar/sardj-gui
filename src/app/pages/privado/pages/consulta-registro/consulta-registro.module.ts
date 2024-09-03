@@ -12,10 +12,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { EstatusTagModule } from 'src/app/shared/modules/estatus-tag/estatus-tag.module';
 import { PaginatorModule } from 'primeng/paginator';
-import { ProgressBarTableModule } from 'src/app/shared/modules/progress-bar-table/progress-bar-table.module';
-import { TitleBarModule } from 'src/app/shared/modules/title-bar/title-bar.module';
+import { EstatusTagModule, ProgressBarTableModule, TitleBarModule } from '@app/shared';
 
 @NgModule({
   declarations: [ConsultaRegistroComponent],

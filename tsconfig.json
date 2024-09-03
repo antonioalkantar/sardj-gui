@@ -19,7 +19,12 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"]
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "paths": {
+      "@app/models": ["src/app/models/index"],
+      "@app/services": ["src/app/services/index"],
+      "@app/shared": ["src/app/shared/index"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
