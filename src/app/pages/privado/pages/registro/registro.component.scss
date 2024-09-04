@@ -8,3 +8,35 @@
   display: inline-block;
   margin-top: 10px;
 }
+
+.border {
+  border-top: 2px solid #9acaf4;
+}
+
+.link-add-item {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  text-align: center;
+  color: #9acaf4;
+  text-decoration: none;
+}
+
+.trash {
+  color: #ff3b30;
+}
+
+.icon-lupa-btn {
+  border-radius: 50%;
+  border: 1px solid #adb8cc80;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+
+.border-header {
+  border: 1px solid #adb8cc80;
+  border-radius: 20px;
+}

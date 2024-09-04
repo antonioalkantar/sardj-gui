@@ -1,141 +1,470 @@
 <app-title-bar route="../consultar-registros" label="Registro" />
-<div class="px-4">
+<form class="px-4 pb-4" [formGroup]="registroForm">
   <h2 class="subtitulo-seccion">Información general</h2>
   <p-card>
-    <form [formGroup]="registroForm">
-      <ng-container formGroupName="informacionGeneral">
-        <div class="row mb-4">
-          <div class="col-md-9">
-            <label for="autoridadSolicitante" class="control-label">Autoridad solicitante</label>
+    <ng-container formGroupName="informacionGeneral">
+      <div class="row mb-4">
+        <div class="col-md-9">
+          <label for="autoridadSolicitante" class="control-label">Autoridad solicitante</label>
+          <input
+            pInputText
+            type="text"
+            class="w-full"
+            id="autoridadSolicitante"
+            formControlName="autoridadSolicitante" />
+        </div>
+        <div class="col-md-3">
+          <label for="numeroOficio" class="control-label">Número de oficio</label>
+          <input pInputText type="text" class="w-full" id="numeroOficio" formControlName="numeroOficio" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="fechaOficio" class="control-label">Fecha de oficio</label>
+          <p-calendar
+            formControlName="fechaOficio"
+            [showTime]="false"
+            styleClass="w-full"
+            [readonlyInput]="true"
+            [showIcon]="true">
+            <ng-template pTemplate="triggericon">
+              <img src="assets/images/icons/calendar.svg" />
+            </ng-template>
+          </p-calendar>
+        </div>
+        <div class="col-md-3">
+          <label for="fechaHoraNotificacion" class="control-label">Fecha y hora de notificación</label>
+          <p-calendar
+            formControlName="fechaHoraNotificacion"
+            [showTime]="true"
+            styleClass="w-full"
+            [readonlyInput]="true"
+            [showIcon]="true">
+            <ng-template pTemplate="triggericon">
+              <img src="assets/images/icons/calendar.svg" />
+            </ng-template>
+          </p-calendar>
+        </div>
+        <div class="col-md-3">
+          <label for="fechaHoraVenAdmin" class="control-label">Fecha y hora de vencimiento administrativo</label>
+          <p-calendar
+            formControlName="fechaHoraVenAdmin"
+            [showTime]="true"
+            styleClass="w-full"
+            [readonlyInput]="true"
+            [showIcon]="true">
+            <ng-template pTemplate="triggericon">
+              <img src="assets/images/icons/calendar.svg" />
+            </ng-template>
+          </p-calendar>
+        </div>
+        <div class="col-md-3">
+          <label for="fechaHoraVenEfectivo" class="control-label">Fecha y hora de vencimiento efectivo</label>
+          <p-calendar
+            formControlName="fechaHoraVenEfectivo"
+            [showTime]="true"
+            styleClass="w-full"
+            [readonlyInput]="true"
+            [showIcon]="true">
+            <ng-template pTemplate="triggericon">
+              <img src="assets/images/icons/calendar.svg" />
+            </ng-template>
+          </p-calendar>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <label for="tipoJuicio" class="control-label">Tipo de juicio</label>
+          <p-dropdown formControlName="tipoJuicio" styleClass="w-full" [options]="tiposJuicios"></p-dropdown>
+        </div>
+        <div class="col-md-3">
+          <label for="expedienteParte1" class="control-label">Autoridad solicitante</label>
+          <div class="flex align-items-center">
             <input
               pInputText
               type="text"
-              class="w-full"
-              id="autoridadSolicitante"
-              formControlName="autoridadSolicitante" />
-          </div>
-          <div class="col-md-3">
-            <label for="numeroOficio" class="control-label">Número de oficio</label>
-            <input pInputText type="text" class="w-full" id="numeroOficio" formControlName="numeroOficio" />
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-md-3">
-            <label for="fechaOficio" class="control-label">Fecha de oficio</label>
-            <p-calendar
-              formControlName="fechaOficio"
-              [showTime]="false"
-              styleClass="w-full"
-              [readonlyInput]="true"
-              [showIcon]="true">
-              <ng-template pTemplate="triggericon">
-                <img src="assets/images/icons/calendar.svg" />
-              </ng-template>
-            </p-calendar>
-          </div>
-          <div class="col-md-3">
-            <label for="fechaHoraNotificacion" class="control-label">Fecha y hora de notificación</label>
-            <p-calendar
-              formControlName="fechaHoraNotificacion"
-              [showTime]="true"
-              styleClass="w-full"
-              [readonlyInput]="true"
-              [showIcon]="true">
-              <ng-template pTemplate="triggericon">
-                <img src="assets/images/icons/calendar.svg" />
-              </ng-template>
-            </p-calendar>
-          </div>
-          <div class="col-md-3">
-            <label for="fechaHoraVenAdmin" class="control-label">Fecha y hora de vencimiento administrativo</label>
-            <p-calendar
-              formControlName="fechaHoraVenAdmin"
-              [showTime]="true"
-              styleClass="w-full"
-              [readonlyInput]="true"
-              [showIcon]="true">
-              <ng-template pTemplate="triggericon">
-                <img src="assets/images/icons/calendar.svg" />
-              </ng-template>
-            </p-calendar>
-          </div>
-          <div class="col-md-3">
-            <label for="fechaHoraVenEfectivo" class="control-label">Fecha y hora de vencimiento efectivo</label>
-            <p-calendar
-              formControlName="fechaHoraVenEfectivo"
-              [showTime]="true"
-              styleClass="w-full"
-              [readonlyInput]="true"
-              [showIcon]="true">
-              <ng-template pTemplate="triggericon">
-                <img src="assets/images/icons/calendar.svg" />
-              </ng-template>
-            </p-calendar>
+              class="w-full text-center"
+              id="expedienteParte1"
+              formControlName="expedienteParte1" />
+            <span class="text-3xl inline-block mx-3 gris-principal-01">/</span>
+            <input
+              pInputText
+              type="text"
+              class="w-full text-center"
+              id="expedienteParte2"
+              formControlName="expedienteParte2" />
+            <input
+              pInputText
+              type="text"
+              class="w-full text-center ml-3"
+              id="expedienteParte3"
+              formControlName="expedienteParte3" />
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-3">
-            <label for="tipoJuicio" class="control-label">Tipo de juicio</label>
-            <p-dropdown formControlName="tipoJuicio" styleClass="w-full" [options]="tiposJuicios"></p-dropdown>
-          </div>
-          <div class="col-md-3">
-            <label for="expedienteParte1" class="control-label">Autoridad solicitante</label>
-            <div class="flex align-items-center">
-              <input
-                pInputText
-                type="text"
-                class="w-full text-center"
-                id="expedienteParte1"
-                formControlName="expedienteParte1" />
-              <span class="text-3xl inline-block mx-3 gris-principal-01">/</span>
-              <input
-                pInputText
-                type="text"
-                class="w-full text-center"
-                id="expedienteParte2"
-                formControlName="expedienteParte2" />
-              <input
-                pInputText
-                type="text"
-                class="w-full text-center ml-3"
-                id="expedienteParte3"
-                formControlName="expedienteParte3" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="expedienteParte1" class="control-label">Localización del requerimiento (opcional)</label>
-            <span class="p-input-icon-right w-full">
-              <i class="pi pi-search"></i>
-              <input type="text" pInputText class="w-full" formControlName="localizacionReq" />
-            </span>
-          </div>
-          <div class="col-md-3">
-            <label for="digitalizarReq" class="control-label">Digitalizar requerimiento</label>
-            <app-upload-control
-              label="Arrastra aquí el archivo o haz clic para seleccionar"
-              [allowedTypes]="['application/pdf']"
-              pathImageIcon="assets/images/icons/pdf-icon.svg"
-              formControlName="digitalizarReq"></app-upload-control>
-            <span class="message-file">
-              Formato permitido PDF y peso máximo 10 Megas:
-              {{
-                informacionGeneral['digitalizarReq'].value?.length
-                  ? informacionGeneral['digitalizarReq'].value?.length
-                  : 0
-              }}
-
-              {{
-                !informacionGeneral['digitalizarReq'].value?.length ||
-                informacionGeneral['digitalizarReq'].value?.length === 0 ||
-                informacionGeneral['digitalizarReq'].value?.length > 1
-                  ? 'Archivos'
-                  : 'Archivo'
-              }}
-            </span>
-          </div>
+        <div class="col-md-3">
+          <label for="expedienteParte1" class="control-label">Localización del requerimiento (opcional)</label>
+          <span class="p-input-icon-right w-full">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText class="w-full" formControlName="localizacionReq" />
+          </span>
         </div>
-      </ng-container>
-    </form>
+        <div class="col-md-3">
+          <label for="digitalizarReq" class="control-label">Digitalizar requerimiento</label>
+          <app-upload-control
+            label="Arrastra aquí el archivo o haz clic para seleccionar"
+            [allowedTypes]="['application/pdf']"
+            pathImageIcon="assets/images/icons/pdf-icon.svg"
+            formControlName="digitalizarReq"></app-upload-control>
+          <span class="message-file">
+            Formato permitido PDF y peso máximo 10 Megas:
+            {{ informacionGeneral['digitalizarReq'].value?.length | fileCount }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
   </p-card>
-</div>
+  <div class="flex align-items-center mt-4">
+    <img src="assets/images/icons/busqueda.svg" />
+    <h2 class="subtitulo-seccion ml-3">Parte demandante</h2>
+  </div>
+  <p-card>
+    <ng-container formGroupName="parteDemandante">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="tipoPersona" class="control-label">Tipo de persona</label>
+          <p-dropdown
+            inputId="tipoPersona"
+            formControlName="tipoPersona"
+            styleClass="w-full"
+            [options]="tiposPersonas"></p-dropdown>
+        </div>
+        <div class="col-md-4">
+          <label for="nombre" class="control-label">Nombre</label>
+          <input pInputText type="text" class="w-full" id="nombre" formControlName="nombre" />
+        </div>
+        <div class="col-md-4 flex">
+          <div class="flex-1">
+            <label for="clave" class="control-label">Clave</label>
+            <p-dropdown inputId="clave" formControlName="clave" styleClass="w-full" [options]="claves"></p-dropdown>
+          </div>
+          <div class="flex-1">
+            <label for="complemento" class="control-label">Complemento</label>
+            <input pInputText type="text" class="w-full" id="complemento" formControlName="complemento" />
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="tipoRequerimiento" class="control-label">Tipo de requerimiento</label>
+          <p-dropdown
+            inputId="tipoRequerimiento"
+            formControlName="tipoRequerimiento"
+            styleClass="w-full"
+            [options]="tiposRequerimientos"></p-dropdown>
+        </div>
+      </div>
+    </ng-container>
+    <hr class="border my-4 mb-0" />
+    <div class="flex justify-content-end align-items-center">
+      <div class="flex flex-column">
+        <a class="link-add-item cursor-pointer" (click)="agregarParteDemandante()">
+          <img src="assets/images/icons/plus-blue.svg" alt="icon" />
+          Agregar parte demandante
+        </a>
+      </div>
+    </div>
+
+    <p-table [value]="partesDemandantes" [tableStyle]="{ 'min-width': '60rem' }" styleClass="mt-4">
+      <ng-template pTemplate="caption">
+        <input pInputText type="text" class="w-30rem border-header" />
+        <button class="icon-lupa-btn ml-3">
+          <img src="assets/images/icons/icon-lupa.svg" alt="lupa" />
+        </button>
+      </ng-template>
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoPersona">
+            <div class="flex justify-content-between">
+              Tipo de persona
+              <p-sortIcon field="tipoPersona"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="nombre">
+            <div class="flex justify-content-between">
+              Nombre
+              <p-sortIcon field="nombre"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="complemento">
+            <div class="flex justify-content-between">
+              Complemento
+              <p-sortIcon field="complemento"></p-sortIcon>
+            </div>
+          </th>
+          <th style="width: 75px; text-align: center">Eliminar</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-parteDemandante>
+        <tr>
+          <td>{{ parteDemandante.tipoPersona }}</td>
+          <td>{{ parteDemandante.nombre }}</td>
+          <td>{{ parteDemandante.tipoRequerimiento }}</td>
+          <td>{{ parteDemandante.clave }}</td>
+          <td>{{ parteDemandante.complemento }}</td>
+          <td class="text-center"><span class="pi pi-trash trash"></span></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <div class="flex justify-content-end align-items-center">
+      <p-button label="Guardar parte(s) demandante(s)" styleClass="p-button-outlined mt-5" [disabled]="true"></p-button>
+    </div>
+  </p-card>
+
+  <div class="flex align-items-center mt-4">
+    <img src="assets/images/icons/busqueda.svg" />
+    <h2 class="subtitulo-seccion ml-3">Parte demandada</h2>
+  </div>
+  <p-card>
+    <ng-container formGroupName="parteDemandada">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="tipoPersona" class="control-label">Tipo de persona</label>
+          <p-dropdown
+            inputId="tipoPersona"
+            formControlName="tipoPersona"
+            styleClass="w-full"
+            [options]="tiposPersonas"></p-dropdown>
+        </div>
+        <div class="col-md-4">
+          <label for="nombre" class="control-label">Nombre</label>
+          <input pInputText type="text" class="w-full" id="nombre" formControlName="nombre" />
+        </div>
+        <div class="col-md-4 flex">
+          <div class="flex-1">
+            <label for="clave" class="control-label">Clave</label>
+            <p-dropdown inputId="clave" formControlName="clave" styleClass="w-full" [options]="claves"></p-dropdown>
+          </div>
+          <div class="flex-1">
+            <label for="complemento" class="control-label">Complemento</label>
+            <input pInputText type="text" class="w-full" id="complemento" formControlName="complemento" />
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="tipoRequerimiento" class="control-label">Tipo de requerimiento</label>
+          <p-dropdown
+            inputId="tipoRequerimiento"
+            formControlName="tipoRequerimiento"
+            styleClass="w-full"
+            [options]="tiposRequerimientos"></p-dropdown>
+        </div>
+      </div>
+    </ng-container>
+    <hr class="border my-4 mb-0" />
+    <div class="flex justify-content-end align-items-center">
+      <div class="flex flex-column">
+        <a class="link-add-item cursor-pointer" (click)="agregarParteDemandada()">
+          <img src="assets/images/icons/plus-blue.svg" alt="icon" />
+          Agregar parte demandada
+        </a>
+      </div>
+    </div>
+
+    <p-table [value]="partesDemandantes" [tableStyle]="{ 'min-width': '60rem' }" styleClass="mt-4">
+      <ng-template pTemplate="caption">
+        <input pInputText type="text" class="w-30rem border-header" />
+        <button class="icon-lupa-btn ml-3">
+          <img src="assets/images/icons/icon-lupa.svg" alt="lupa" />
+        </button>
+      </ng-template>
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoPersona">
+            <div class="flex justify-content-between">
+              Tipo de persona
+              <p-sortIcon field="tipoPersona"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="nombre">
+            <div class="flex justify-content-between">
+              Nombre
+              <p-sortIcon field="nombre"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="complemento">
+            <div class="flex justify-content-between">
+              Complemento
+              <p-sortIcon field="complemento"></p-sortIcon>
+            </div>
+          </th>
+          <th style="width: 75px; text-align: center">Eliminar</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-parteDemandada>
+        <tr>
+          <td>{{ parteDemandada.tipoPersona }}</td>
+          <td>{{ parteDemandada.nombre }}</td>
+          <td>{{ parteDemandada.tipoRequerimiento }}</td>
+          <td>{{ parteDemandada.clave }}</td>
+          <td>{{ parteDemandada.complemento }}</td>
+          <td class="text-center"><span class="pi pi-trash trash"></span></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <div class="flex justify-content-end align-items-center">
+      <p-button label="Guardar parte(s) demandada(s)" styleClass="p-button-outlined mt-5" [disabled]="true"></p-button>
+    </div>
+  </p-card>
+
+  <div class="flex align-items-center mt-4">
+    <img src="assets/images/icons/busqueda.svg" />
+    <h2 class="subtitulo-seccion ml-3">Terceros</h2>
+  </div>
+  <p-card>
+    <ng-container formGroupName="terceros">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="tipoPersona" class="control-label">Tipo de persona</label>
+          <p-dropdown
+            inputId="tipoPersona"
+            formControlName="tipoPersona"
+            styleClass="w-full"
+            [options]="tiposPersonas"></p-dropdown>
+        </div>
+        <div class="col-md-4">
+          <label for="nombre" class="control-label">Nombre</label>
+          <input pInputText type="text" class="w-full" id="nombre" formControlName="nombre" />
+        </div>
+        <div class="col-md-4 flex">
+          <div class="flex-1">
+            <label for="clave" class="control-label">Clave</label>
+            <p-dropdown inputId="clave" formControlName="clave" styleClass="w-full" [options]="claves"></p-dropdown>
+          </div>
+          <div class="flex-1">
+            <label for="complemento" class="control-label">Complemento</label>
+            <input pInputText type="text" class="w-full" id="complemento" formControlName="complemento" />
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="tipoRequerimiento" class="control-label">Tipo de requerimiento</label>
+          <p-dropdown
+            inputId="tipoRequerimiento"
+            formControlName="tipoRequerimiento"
+            styleClass="w-full"
+            [options]="tiposRequerimientos"></p-dropdown>
+        </div>
+      </div>
+    </ng-container>
+    <hr class="border my-4 mb-0" />
+    <div class="flex justify-content-end align-items-center">
+      <div class="flex flex-column">
+        <a class="link-add-item cursor-pointer" (click)="agregarTercero()">
+          <img src="assets/images/icons/plus-blue.svg" alt="icon" />
+          Agregar tercero
+        </a>
+      </div>
+    </div>
+
+    <p-table [value]="tercerosLista" [tableStyle]="{ 'min-width': '60rem' }" styleClass="mt-4">
+      <ng-template pTemplate="caption">
+        <input pInputText type="text" class="w-30rem border-header" />
+        <button class="icon-lupa-btn ml-3">
+          <img src="assets/images/icons/icon-lupa.svg" alt="lupa" />
+        </button>
+      </ng-template>
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoPersona">
+            <div class="flex justify-content-between">
+              Tipo de persona
+              <p-sortIcon field="tipoPersona"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="nombre">
+            <div class="flex justify-content-between">
+              Nombre
+              <p-sortIcon field="nombre"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="complemento">
+            <div class="flex justify-content-between">
+              Complemento
+              <p-sortIcon field="complemento"></p-sortIcon>
+            </div>
+          </th>
+          <th style="width: 75px; text-align: center">Eliminar</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tercero>
+        <tr>
+          <td>{{ tercero.tipoPersona }}</td>
+          <td>{{ tercero.nombre }}</td>
+          <td>{{ tercero.tipoRequerimiento }}</td>
+          <td>{{ tercero.clave }}</td>
+          <td>{{ tercero.complemento }}</td>
+          <td class="text-center"><span class="pi pi-trash trash"></span></td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <div class="flex justify-content-end align-items-center">
+      <p-button label="Guardar tercero(s)" styleClass="p-button-outlined mt-5" [disabled]="true"></p-button>
+    </div>
+  </p-card>
+
+  <div class="mt-5 flex justify-content-end align-items-center">
+    <p-button label="Cancelar registro" styleClass="p-button-outlined p-button-danger" [disabled]="false"></p-button>
+    <p-button label="Guardar registro" styleClass="p-button-success ml-5" [disabled]="true"></p-button>
+  </div>
+</form>

@@ -8,7 +8,7 @@
   <span *ngIf="files === null || files.length === 0" class="file-upload-empty">
     {{ label }}
   </span>
-  <div *ngFor="let file of files" class="file-item">
+  <div *ngFor="let file of files" class="file-item" (click)="$event.stopPropagation()">
     <img [src]="pathImageIcon" alt="file" />
     <span>{{ file.name }}</span>
     <span class="pi pi-times-circle cursor-pointer" (click)="removeFile($event, file)"></span>

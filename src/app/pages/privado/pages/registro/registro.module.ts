@@ -9,9 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
+import { FileCountPipe } from './pipes/file-count.pipe';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
-  declarations: [RegistroComponent],
+  declarations: [RegistroComponent, FileCountPipe],
   imports: [
     CommonModule,
     RegistroRoutingModule,
@@ -22,6 +25,8 @@ import { DropdownModule } from 'primeng/dropdown';
     CalendarModule,
     DropdownModule,
     UploadControlModule,
+    ButtonModule,
+    TableModule,
   ],
 })
 export class RegistroModule {}

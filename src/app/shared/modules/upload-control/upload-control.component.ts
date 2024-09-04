@@ -125,8 +125,10 @@ export class UploadControlComponent implements ControlValueAccessor {
     event.preventDefault();
     event.stopPropagation();
     const files = event.target?.files;
-    this.files = this.filterFiles(files);
-    this.onChange(this.files);
+    if (files && files.length > 0) {
+      this.files = this.filterFiles(files);
+      this.onChange(this.files);
+    }
   }
 
   handleClick(event: any): void {
