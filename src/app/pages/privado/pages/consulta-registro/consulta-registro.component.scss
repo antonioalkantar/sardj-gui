@@ -47,4 +47,49 @@
   .p-panel .p-panel-header .p-panel-header-icon:enabled:hover {
     background: transparent;
   }
+
+  .p-menu .p-menuitem-link {
+    padding: 0.75rem 2.25rem !important;
+  }
+
+  .p-menuitem-link:not(.p-disabled) .p-menuitem-text {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: center;
+    color: #54afff !important;
+  }
+
+  .p-menu-separator {
+    width: 90%;
+    margin: 0.25rem auto;
+  }
+
+  .editar-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../../../../../assets/images/icons/icon-edit.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .asignar-abogado-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../../../../../assets/images/icons/icon_asignar_abogado.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .validar-oficio-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../../../../../assets/images/icons/Icon_validar_oficio-disabled.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

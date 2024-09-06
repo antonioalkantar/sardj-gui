@@ -7,6 +7,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterPrivadoComponent } from './core/components/footer-privado/footer-privado.component';
+import { ToastModule } from 'primeng/toast';
+import { AlertaModule } from './shared/modules/alerta/alerta.module';
+import { MessageService } from 'primeng/api';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -27,8 +30,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    ToastModule,
+    AlertaModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

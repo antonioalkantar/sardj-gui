@@ -465,6 +465,6 @@
 
   <div class="mt-5 flex justify-content-end align-items-center">
     <p-button label="Cancelar registro" styleClass="p-button-outlined p-button-danger" [disabled]="false"></p-button>
-    <p-button label="Guardar registro" styleClass="p-button-success ml-5" [disabled]="true"></p-button>
+    <p-button label="Guardar registro" styleClass="p-button-success ml-5" (onClick)="guardar()"></p-button>
   </div>
 </form>

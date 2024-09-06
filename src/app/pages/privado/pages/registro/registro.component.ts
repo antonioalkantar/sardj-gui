@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-registro',
@@ -74,7 +75,7 @@ export class RegistroComponent implements OnInit {
     },
   ];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.inicializarForm();
@@ -117,6 +118,14 @@ export class RegistroComponent implements OnInit {
         complemento: [{ value: null, disabled: false }, [Validators.required]],
         tipoRequerimiento: [{ value: null, disabled: false }, [Validators.required]],
       }),
+    });
+  }
+
+  guardar() {
+    this.messageService.add({
+      severity: 'error',
+      detail: 'Se generó el ID de requerimiento 000001/2024-001-11',
+      life: 5000000,
     });
   }
 

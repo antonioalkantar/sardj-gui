@@ -1,0 +1,38 @@
+.p-toast .p-toast-message.p-toast-message-success {
+  background: #d1e7dd;
+  border: 2px solid #97ceb5;
+  .p-toast-summary,
+  .p-toast-detail {
+    color: #0a3622;
+  }
+  .p-toast-icon-close {
+    color: #0a3622;
+    transform: scale(1.5);
+  }
+}
+
+.p-toast .p-toast-message.p-toast-message-error {
+  background: #f8d7da;
+  border: 2px solid #f1aeb5;
+  .p-toast-summary,
+  .p-toast-detail {
+    color: #58151c;
+  }
+  .p-toast-icon-close {
+    color: #58151c;
+    transform: scale(1.5);
+  }
+}
+
+.p-toast .p-toast-message.p-toast-message-warn {
+  background: #fff3cd;
+  border: 2px solid #ffe69c;
+  .p-toast-summary,
+  .p-toast-detail {
+    color: #a17903;
+  }
+  .p-toast-icon-close {
+    color: #a17903;
+    transform: scale(1.5);
+  }
+}

@@ -1,2 +1,7 @@
 <router-outlet></router-outlet>
 <app-footer-privado></app-footer-privado>
+<p-toast position="top-center" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+    <app-alerta [message]="message"></app-alerta>
+  </ng-template>
+</p-toast>

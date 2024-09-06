@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
 
 @Component({
   selector: 'app-consulta-registro',
@@ -8,6 +10,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConsultaRegistroComponent implements OnInit {
+  @ViewChild('menu') menu!: Menu;
+
   busquedaForm!: FormGroup;
   estatus: any[] = [
     { label: 'Opción 1', value: 1 },
@@ -104,6 +108,33 @@ export class ConsultaRegistroComponent implements OnInit {
 
   rows: number = 10;
 
+  opcionesMenuRegistro: MenuItem[] = [
+    {
+      label: 'Editar',
+      icon: 'editar-icon',
+      // routerLink: '/privado/registro',
+      command: () => {},
+    },
+    {
+      separator: true,
+    },
+    {
+      label: 'Asignar abogado',
+      icon: 'asignar-abogado-icon ',
+      // routerLink: '/privado/registro',
+      command: () => {},
+    },
+    {
+      separator: true,
+    },
+    {
+      label: 'Validar Oficio',
+      icon: 'validar-oficio-icon',
+      disabled: true,
+      // routerLink: '/privado/registro',
+      command: () => {},
+    },
+  ];
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -121,6 +152,10 @@ export class ConsultaRegistroComponent implements OnInit {
       idSubestatus: [{ value: null, disabled: false }, []],
       idAbogadoResponsable: [{ value: null, disabled: false }, []],
     });
+  }
+
+  abrirAccionesTablaRegistro(event: any, registro: any): void {
+    this.menu.toggle(event);
   }
 
   onPageChange(event: any): void {

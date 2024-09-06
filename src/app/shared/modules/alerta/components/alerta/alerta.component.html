@@ -1,0 +1,17 @@
+<div class="{{ message.severity }} content">
+  <div class="flex align-items-center alert-icon">
+    <ng-container *ngIf="message.severity === 'success'">
+      <img src="assets/images/icons/alert-success.svg" class="mr-8" alt="" />
+    </ng-container>
+    <ng-container *ngIf="message.severity === 'error'">
+      <img src="assets/images/icons/alert-error.svg" class="mr-8" alt="" />
+    </ng-container>
+    <ng-container *ngIf="message.severity === 'warn'">
+      <img src="assets/images/icons/alert-warn.svg" class="mr-8" alt="" />
+    </ng-container>
+  </div>
+  <div class="flex flex-column">
+    <span class="alert-title">{{ message.summary }}</span>
+    <p class="alert-details m-0">{{ message.detail }}</p>
+  </div>
+</div>
