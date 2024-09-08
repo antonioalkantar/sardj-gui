@@ -47,6 +47,15 @@ img {
   color: #58595c;
 }
 
+.text {
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14.63px;
+  text-align: left;
+  color: #58595c;
+}
+
 .link {
   color: #0c8ce9;
   text-decoration: underline;
@@ -60,4 +69,26 @@ img {
   text-align: left;
   color: #353c57;
   margin: 16px 0;
+}
+
+.bar {
+  display: inline-block;
+  background-color: #dddddd;
+  width: 2px;
+  height: 20px;
+}
+
+.icon-container {
+  border-radius: 50%;
+  border: 2px solid #e3f3f4;
+  padding: 4px;
+}
+
+.icon-up,
+.icon-down {
+  color: #36b1b9;
+  font-size: 8px;
+  font-weight: 600;
+  top: 1px;
+  position: relative;
 }

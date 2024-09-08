@@ -1,0 +1,91 @@
+.header-label {
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.63px;
+  text-align: left;
+}
+
+.pdf-item-container {
+  display: flex;
+  background-color: #fafbff;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: left;
+  color: #58595c;
+  border-radius: 5px;
+  padding: 8px;
+  span {
+    display: inline-block;
+    margin-left: 8px;
+  }
+}
+
+.header-text {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.5px;
+  text-align: left;
+}
+
+.bar-custom {
+  display: inline-block;
+  background-color: #dddddd;
+  width: 2px;
+  height: 35px;
+}
+
+.icon-lupa-btn {
+  border-radius: 50%;
+  border: 1px solid #adb8cc80;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+
+:host ::ng-deep .title-bar {
+  .title {
+    margin-left: 20px !important;
+    display: inline-block;
+  }
+
+  button + .bar {
+    display: none;
+  }
+}
+
+:host ::ng-deep {
+  .p-panel .p-panel-header {
+    background: white;
+    border: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 16px;
+  }
+
+  .p-panel-expanded .p-panel-header .internal-border {
+    border-bottom: 2px solid #c7eee8;
+    margin-right: -30px;
+  }
+  .p-panel .p-panel-content {
+    border: none;
+    padding-top: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .p-panel .p-panel-header .p-panel-header-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: scale(1.5);
+  }
+  .p-panel .p-panel-header .p-panel-header-icon:focus {
+    box-shadow: none;
+  }
+  .p-panel .p-panel-header .p-panel-header-icon:enabled:hover {
+    background: white;
+  }
+}

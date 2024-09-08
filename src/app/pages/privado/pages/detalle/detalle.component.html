@@ -1,0 +1,321 @@
+<app-title-bar route="../consultar-registros" label="Detalle">
+  <div class="flex align-items-center">
+    <hr class="bar my-0" />
+    <div class="flex flex-column ml-5">
+      <span class="header-label">ID Requerimiento</span>
+      <span class="header-text">000001/2024-001-01</span>
+    </div>
+    <div class="flex flex-column ml-6">
+      <span class="header-label">Estatus</span>
+      <app-estatus-tag severity="success" label="Registrado" />
+    </div>
+  </div>
+</app-title-bar>
+<form class="px-4 pb-4" [formGroup]="form">
+  <h2 class="subtitulo-seccion">Asignación de abogado</h2>
+  <p-card>
+    <div class="row flex align-items-end">
+      <div class="col-md-4">
+        <label for="abogado" class="control-label">Asignar abogado</label>
+        <p-dropdown formControlName="abogado" styleClass="w-full" [options]="abogados"></p-dropdown>
+      </div>
+      <div class="col-md-4">
+        <label for="ooad" class="control-label">OOAD</label>
+        <input pInputText type="text" class="w-full" id="ooad" formControlName="ooad" />
+      </div>
+      <div class="col-md-4">
+        <p-button label="Asignar abogado" styleClass="p-button-outlined p-button-success" [disabled]="false"></p-button>
+      </div>
+    </div>
+  </p-card>
+  <h2 class="subtitulo-seccion">Información general</h2>
+  <p-card>
+    <div class="row">
+      <div class="col-md-6">
+        <span class="header-label block">Autoridad solicitante</span>
+        <span class="header-label font-semibold inline-block mt-2">
+          Juzgado Vigesimoprimero de lo Civil en la Ciudad de México
+        </span>
+      </div>
+      <div class="col-md-3">
+        <span class="header-label block">Número de oficio</span>
+        <span class="header-label font-semibold inline-block mt-2">3012060M12/1519/2023</span>
+      </div>
+      <div class="col-md-3">
+        <span class="header-label block">Tipo de juicio</span>
+        <span class="header-label font-semibold inline-block mt-2">Ejecutivo mercantil</span>
+      </div>
+    </div>
+    <hr class="my-3" />
+    <div class="row mt-1">
+      <div class="col-md-3 flex">
+        <div>
+          <img src="assets/images/icons/fecha-oficio.svg" />
+        </div>
+        <div class="ml-3">
+          <span class="header-label block">Fecha de oficio</span>
+          <span class="header-label font-semibold inline-block mt-2">01/07/2024</span>
+        </div>
+        <hr class="bar-custom my-0" />
+      </div>
+      <div class="col-md-3 flex">
+        <div>
+          <img src="assets/images/icons/fecha-hora-notificacion.svg" />
+        </div>
+        <div class="ml-3">
+          <span class="header-label block">Fecha y hora de notificación</span>
+          <span class="header-label font-semibold inline-block mt-2">15/07/2024 - 10:00hrs</span>
+        </div>
+        <hr class="bar-custom my-0" />
+      </div>
+      <div class="col-md-3 flex">
+        <div>
+          <img src="assets/images/icons/fecha-hora-vencimiento.svg" />
+        </div>
+        <div class="ml-3">
+          <span class="header-label block">Fecha y hora de vencimiento administrativo</span>
+          <span class="header-label font-semibold inline-block mt-2">30/07/2024 - 13:00hrs</span>
+        </div>
+        <hr class="bar-custom my-0" />
+      </div>
+      <div class="col-md-3 flex">
+        <div>
+          <img src="assets/images/icons/fecha-hora-vencimiento-efect.svg" />
+        </div>
+        <div class="ml-3">
+          <span class="header-label block">Fecha y hora de vencimiento efectivo</span>
+          <span class="header-label font-semibold inline-block mt-2">31/07/2024 - 14:00hrs</span>
+        </div>
+      </div>
+    </div>
+    <hr class="my-3" />
+    <div class="row mt-1">
+      <div class="col-md-3">
+        <span class="header-label block">Expediente</span>
+        <span class="header-label font-semibold inline-block mt-2">100/2023-III</span>
+      </div>
+      <div class="col-md-3">
+        <span class="header-label block">Localización del requerimiento</span>
+        <span class="header-label font-semibold inline-block mt-2">A-38</span>
+      </div>
+      <div class="col-md-3">
+        <span class="header-label block">Documentación requerida</span>
+        <div class="pdf-item-container">
+          <img src="assets/images/icons/pdf-icon-red.svg" />
+          <div class="flex justify-content-between align-items-center flex-1">
+            <span>requerimiento.pdf</span>
+            <img src="assets/images/icons/red-arrow-down.svg" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <span class="header-label block">Abogado asignado</span>
+        <span class="header-label font-semibold inline-block mt-2"></span>
+      </div>
+    </div>
+  </p-card>
+  <p-panel [toggleable]="true" [collapsed]="true" styleClass="mt-4">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center w-full internal-border">
+        <img src="assets/images/icons/parte_demandante.svg" />
+        <span class="subtitulo-seccion ml-3 mb-3">Parte demandante</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="headericons" let-expanded>
+      <div class="flex align-items-center justify-content-center icon-container">
+        <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+        <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+      </div>
+    </ng-template>
+
+    <p-table [value]="partesDemandantes" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="caption">
+        <div class="p-3"></div>
+      </ng-template>
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoPersona">
+            <div class="flex justify-content-between">
+              Tipo de persona
+              <p-sortIcon field="tipoPersona"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="nombre">
+            <div class="flex justify-content-between">
+              Nombre
+              <p-sortIcon field="nombre"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="complemento">
+            <div class="flex justify-content-between">
+              Complemento
+              <p-sortIcon field="complemento"></p-sortIcon>
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-parteDemandante>
+        <tr>
+          <td>{{ parteDemandante.tipoPersona }}</td>
+          <td>{{ parteDemandante.nombre }}</td>
+          <td>{{ parteDemandante.tipoRequerimiento }}</td>
+          <td>{{ parteDemandante.clave }}</td>
+          <td>{{ parteDemandante.complemento }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+  <p-panel [toggleable]="true" [collapsed]="true" styleClass="mt-4">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center w-full internal-border">
+        <img src="assets/images/icons/parte_demandada.svg" />
+        <span class="subtitulo-seccion ml-3 mb-3">Parte demandada</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="headericons" let-expanded>
+      <div class="flex align-items-center justify-content-center icon-container">
+        <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+        <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+      </div>
+    </ng-template>
+    <p-table [value]="partesDemandadas" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="caption">
+        <div class="p-3"></div>
+      </ng-template>
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoPersona">
+            <div class="flex justify-content-between">
+              Tipo de persona
+              <p-sortIcon field="tipoPersona"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="nombre">
+            <div class="flex justify-content-between">
+              Nombre
+              <p-sortIcon field="nombre"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="complemento">
+            <div class="flex justify-content-between">
+              Complemento
+              <p-sortIcon field="complemento"></p-sortIcon>
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-parteDemandante>
+        <tr>
+          <td>{{ parteDemandante.tipoPersona }}</td>
+          <td>{{ parteDemandante.nombre }}</td>
+          <td>{{ parteDemandante.tipoRequerimiento }}</td>
+          <td>{{ parteDemandante.clave }}</td>
+          <td>{{ parteDemandante.complemento }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+
+  <p-panel [toggleable]="true" [collapsed]="true" styleClass="mt-4">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center w-full internal-border">
+        <img src="assets/images/icons/terceros.svg" />
+        <span class="subtitulo-seccion ml-3 mb-3">Terceros</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="headericons" let-expanded>
+      <div class="flex align-items-center justify-content-center icon-container">
+        <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+        <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+      </div>
+    </ng-template>
+    <p-table [value]="tercerosLista" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="caption">
+        <div class="p-3"></div>
+      </ng-template>
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoPersona">
+            <div class="flex justify-content-between">
+              Tipo de persona
+              <p-sortIcon field="tipoPersona"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="nombre">
+            <div class="flex justify-content-between">
+              Nombre
+              <p-sortIcon field="nombre"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="complemento">
+            <div class="flex justify-content-between">
+              Complemento
+              <p-sortIcon field="complemento"></p-sortIcon>
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tercero>
+        <tr>
+          <td>{{ tercero.tipoPersona }}</td>
+          <td>{{ tercero.nombre }}</td>
+          <td>{{ tercero.tipoRequerimiento }}</td>
+          <td>{{ tercero.clave }}</td>
+          <td>{{ tercero.complemento }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+  <div class="mt-5 flex justify-content-end align-items-center">
+    <p-button type="button" label="Cancelar" styleClass="p-button-outlined p-button-danger bg-white"></p-button>
+    <p-button type="button" label="Guardar asignación" styleClass="p-button-success ml-5"></p-button>
+  </div>
+</form>

@@ -175,7 +175,7 @@
       <ng-template pTemplate="body" let-row>
         <tr>
           <td>
-            <span class="link">{{ row.requerimiento }}</span>
+            <span class="link" routerLink="../detalle">{{ row.requerimiento }}</span>
           </td>
           <td>
             <a class="cursor-pointer" (click)="abrirAccionesTablaRegistro($event, row)">

@@ -14,3 +14,8 @@
 .p-inputtext:enabled:focus {
   box-shadow: none;
 }
+
+.p-inputtext:disabled {
+  background-color: #f0f2fa;
+  border: none;
+}
