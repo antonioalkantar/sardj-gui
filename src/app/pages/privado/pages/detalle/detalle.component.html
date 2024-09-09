@@ -24,11 +24,18 @@
         <input pInputText type="text" class="w-full" id="ooad" formControlName="ooad" />
       </div>
       <div class="col-md-4">
-        <p-button label="Asignar abogado" styleClass="p-button-outlined p-button-success" [disabled]="false"></p-button>
+        <p-button label="Asignar abogado" styleClass="p-button-outlined p-button-primary" [disabled]="false"></p-button>
       </div>
     </div>
   </p-card>
-  <h2 class="subtitulo-seccion">Información general</h2>
+  <div class="flex justify-content-between my-4 align-items-center">
+    <h2 class="subtitulo-seccion my-0">Información general</h2>
+    <p-button
+      routerLink="../edicion"
+      type="button"
+      label="Editar"
+      styleClass="p-button-outlined p-button-primary bg-white w-14rem"></p-button>
+  </div>
   <p-card>
     <div class="row">
       <div class="col-md-6">
@@ -316,6 +323,6 @@
   </p-panel>
   <div class="mt-5 flex justify-content-end align-items-center">
     <p-button type="button" label="Cancelar" styleClass="p-button-outlined p-button-danger bg-white"></p-button>
-    <p-button type="button" label="Guardar asignación" styleClass="p-button-success ml-5"></p-button>
+    <p-button type="button" label="Guardar asignación" styleClass="p-button-primary ml-5"></p-button>
   </div>
 </form>

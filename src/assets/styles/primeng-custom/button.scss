@@ -1,15 +1,22 @@
-.p-button.p-button-primary,
-.p-buttonset.p-button-primary > .p-button,
-.p-splitbutton.p-button-primary > .p-button {
+.p-button-primary .p-button-label,
+.p-button-secondary .p-button-label,
+.p-button-outlined .p-button-label,
+.p-button-danger .p-button-label,
+.p-button-success .p-button-label {
+  font-weight: 500;
+}
+
+.p-button.p-button-primary:not(.p-button-outlined) {
   background: #10a16a;
   border: 1px solid #10a16a;
   border-radius: 6px;
-  padding: 9px 16px 9px 16px;
+  padding: 6px 16px !important;
   font-family: Montserrat;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
   text-align: center;
+  color: white !important;
 }
 .p-disabled,
 .p-component:disabled {
@@ -27,13 +34,13 @@
 }
 
 .p-button.p-button-outlined {
-  padding: 9px 16px 9px 16px;
+  padding: 6px 16px !important;
   border-radius: 6px;
   color: #10a16a;
   border-color: #10a16a;
   font-family: Montserrat;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
   text-align: center;
 }
@@ -55,10 +62,10 @@
   background: #f0f2fa;
   border: 1px solid #f0f2fa;
   border-radius: 6px;
-  padding: 9px 16px 9px 16px;
+  padding: 6px 16px !important;
   font-family: Montserrat;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
   text-align: center;
   color: #6776a8;
@@ -78,13 +85,13 @@
 .p-button.p-button-secondary.p-button-outlined,
 .p-buttonset.p-button-secondary > .p-button.p-button-outlined,
 .p-splitbutton.p-button-secondary > .p-button.p-button-outlined {
-  padding: 9px 16px 9px 16px;
+  padding: 6px 16px !important;
   border-radius: 6px;
   color: #909abf;
   border-color: #909abf;
   font-family: Montserrat;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
   text-align: center;
 }
@@ -96,10 +103,10 @@
   background: #e4496d;
   border: 1px solid #e4496d;
   border-radius: 6px;
-  padding: 9px 16px 9px 16px;
+  padding: 6px 16px !important;
   font-family: Montserrat;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
   text-align: center;
   color: white;
@@ -119,13 +126,13 @@
 .p-button.p-button-danger.p-button-outlined,
 .p-buttonset.p-button-danger > .p-button.p-button-outlined,
 .p-splitbutton.p-button-danger > .p-button.p-button-outlined {
-  padding: 9px 16px 9px 16px;
+  padding: 6px 16px !important;
   border-radius: 6px;
   color: #f19fb2;
   border-color: #f19fb2;
   font-family: Montserrat;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 20px;
   text-align: center;
 }

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-upload-control',

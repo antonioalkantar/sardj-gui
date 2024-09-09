@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DetalleRoutingModule } from './detalle-routing.module';
-import { DetalleComponent } from './detalle.component';
-import { EstatusTagModule, FileCountModule, TitleBarModule } from '@app/shared';
+import { EdicionRoutingModule } from './edicion-routing.module';
+import { EdicionComponent } from './edicion.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TitleBarModule, EstatusTagModule, UploadControlModule, FileCountModule } from '@app/shared';
+import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
-  declarations: [DetalleComponent],
+  declarations: [EdicionComponent],
   imports: [
     CommonModule,
-    DetalleRoutingModule,
+    EdicionRoutingModule,
     ReactiveFormsModule,
+    CalendarModule,
     TitleBarModule,
     EstatusTagModule,
     CardModule,
@@ -26,7 +28,8 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     PanelModule,
     TableModule,
+    UploadControlModule,
     FileCountModule,
   ],
 })
-export class DetalleModule {}
+export class EdicionModule {}

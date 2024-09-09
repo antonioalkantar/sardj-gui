@@ -108,11 +108,11 @@ export class ConsultaRegistroComponent implements OnInit {
 
   rows: number = 10;
 
-  opcionesMenuRegistro: MenuItem[] = [
+  accionesFilaTabla: MenuItem[] = [
     {
       label: 'Editar',
       icon: 'editar-icon',
-      // routerLink: '/privado/registro',
+      routerLink: '/privado/edicion',
       command: () => {},
     },
     {
@@ -122,7 +122,9 @@ export class ConsultaRegistroComponent implements OnInit {
       label: 'Asignar abogado',
       icon: 'asignar-abogado-icon ',
       // routerLink: '/privado/registro',
-      command: () => {},
+      command: () => {
+        this.mostrarDialogAsignarAbogado();
+      },
     },
     {
       separator: true,
@@ -135,10 +137,28 @@ export class ConsultaRegistroComponent implements OnInit {
       command: () => {},
     },
   ];
+
+  visibleDialogAsignarAbogado: boolean = false;
+
+  abogados: any[] = [
+    { label: 'Opción 1', value: 1 },
+    { label: 'Opción 2', value: 2 },
+  ];
+
+  asignacionAbogadoForm!: FormGroup;
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.inicializarFormulario();
+    this.inicializarFormAsignarAbogado();
+  }
+
+  inicializarFormAsignarAbogado() {
+    this.asignacionAbogadoForm = this.formBuilder.group({
+      abogado: [{ value: null, disabled: false }, []],
+      ooad: [{ value: 'Baja California Sur', disabled: true }, []],
+    });
   }
 
   inicializarFormulario(): void {
@@ -152,6 +172,10 @@ export class ConsultaRegistroComponent implements OnInit {
       idSubestatus: [{ value: null, disabled: false }, []],
       idAbogadoResponsable: [{ value: null, disabled: false }, []],
     });
+  }
+
+  mostrarDialogAsignarAbogado(): void {
+    this.visibleDialogAsignarAbogado = true;
   }
 
   abrirAccionesTablaRegistro(event: any, registro: any): void {
