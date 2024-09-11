@@ -175,10 +175,12 @@
       <ng-template pTemplate="body" let-row>
         <tr>
           <td>
-            <span class="link" routerLink="../detalle">{{ row.requerimiento }}</span>
+            <span class="link cursor-pointer" routerLink="../detalle">{{ row.requerimiento }}</span>
           </td>
           <td>
-            <a class="cursor-pointer" (click)="abrirAccionesTablaRegistro($event, row)">
+            <a
+              class="cursor-pointer flex justify-content-center w-4rem"
+              (click)="abrirAccionesTablaRegistro($event, row)">
               <img src="assets/images/icons/ellipsis.svg" width="5" />
             </a>
           </td>
@@ -186,40 +188,40 @@
           <td>{{ row.numeroOficio }}</td>
           <td>{{ row.abogado }}</td>
           <td>{{ row.fechaNotificacion }}</td>
-          <td pFrozenColumn alignFrozen="right" style="right: 480px">
+          <td pFrozenColumn alignFrozen="right" style="right: 480px; z-index: 1">
             <app-estatus-tag *ngIf="row.estatus === 4" severity="success" label="Completa" />
             <app-estatus-tag *ngIf="row.estatus === 1" severity="info" label="Otras áreas" />
             <!-- <app-estatus-tag severity="danger" label="Sin info." /> -->
             <!-- <app-estatus-tag severity="warning" label="Incompleta" /> -->
           </td>
-          <td pFrozenColumn alignFrozen="right" style="right: 400px; padding: 0; overflow-x: hidden">
+          <td pFrozenColumn alignFrozen="right" style="right: 400px; padding: 0; overflow-x: hidden; z-index: 1">
             <app-progress-bar-table *ngIf="row.registrado" [showRightBar]="row.abogadoAsignado" />
           </td>
-          <td pFrozenColumn alignFrozen="right" style="right: 320px; padding: 0; overflow-x: hidden">
+          <td pFrozenColumn alignFrozen="right" style="right: 320px; padding: 0; overflow-x: hidden; z-index: 1">
             <app-progress-bar-table
               *ngIf="row.abogadoAsignado"
               [showLeftBar]="row.registrado"
               [showRightBar]="row.generandoOficio" />
           </td>
-          <td pFrozenColumn alignFrozen="right" style="right: 240px; padding: 0; overflow-x: hidden">
+          <td pFrozenColumn alignFrozen="right" style="right: 240px; padding: 0; overflow-x: hidden; z-index: 1">
             <app-progress-bar-table
               *ngIf="row.generandoOficio"
               [showLeftBar]="row.abogadoAsignado"
               [showRightBar]="row.porValidarOficio" />
           </td>
-          <td pFrozenColumn alignFrozen="right" style="right: 160px; padding: 0; overflow-x: hidden">
+          <td pFrozenColumn alignFrozen="right" style="right: 160px; padding: 0; overflow-x: hidden; z-index: 1">
             <app-progress-bar-table
               *ngIf="row.porValidarOficio"
               [showLeftBar]="row.generandoOficio"
               [showRightBar]="row.respuestaEnviada" />
           </td>
-          <td pFrozenColumn alignFrozen="right" style="right: 80px; padding: 0; overflow-x: hidden">
+          <td pFrozenColumn alignFrozen="right" style="right: 80px; padding: 0; overflow-x: hidden; z-index: 1">
             <app-progress-bar-table
               *ngIf="row.respuestaEnviada"
               [showLeftBar]="row.porValidarOficio"
               [showRightBar]="row.requerimientoConcluido" />
           </td>
-          <td pFrozenColumn alignFrozen="right" style="right: 0; padding: 0; overflow-x: hidden">
+          <td pFrozenColumn alignFrozen="right" style="right: 0; padding: 0; overflow-x: hidden; z-index: 1">
             <app-progress-bar-table *ngIf="row.requerimientoConcluido" [showLeftBar]="row.respuestaEnviada" />
           </td>
         </tr>

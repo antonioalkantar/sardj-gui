@@ -321,6 +321,554 @@
       </ng-template>
     </p-table>
   </p-panel>
+  <h2 class="subtitulo-seccion font-bold">Información de afiliación</h2>
+  <p-panel styleClass="mt-4">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center w-full internal-border">
+        <img src="assets/images/icons/parte_demandante.svg" />
+        <span class="subtitulo-seccion ml-3 mb-3">Parte demandante</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="headericons" let-expanded>
+      <div class="flex align-items-center justify-content-center icon-container">
+        <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+        <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+      </div>
+    </ng-template>
+
+    <p-table [value]="afiliaciones" dataKey="id" styleClass="tabla-afiliacion" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nombreRazonSocial">
+            <div class="flex justify-content-between">
+              Nombre / Razón social
+              <p-sortIcon field="nombreRazonSocial"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="valor">
+            <div class="flex justify-content-between">
+              Valor
+              <p-sortIcon field="valor"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th>
+            <div class="flex justify-content-between">Consultar</div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-afiliacion let-expanded="expanded">
+        <tr>
+          <td>{{ afiliacion.nombreRazonSocial }}</td>
+          <td>{{ afiliacion.clave }}</td>
+          <td>{{ afiliacion.valor }}</td>
+          <td>{{ afiliacion.tipoRequerimiento }}</td>
+          <td class="toggle-column">
+            <div class="flex justify-content-evenly align-items-center">
+              <a class="flex justify-content-center">
+                <img src="assets/images/icons/consultar.svg" alt="icono" />
+              </a>
+              <button
+                [pRowToggler]="afiliacion"
+                type="button"
+                pButton
+                pRipple
+                class="p-button-text p-button-rounded p-button-plain"
+                [icon]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="rowexpansion" let-afiliacion>
+        <tr>
+          <td colspan="5" class="border-bottom-none">
+            <div class="row mx-0">
+              <div class="col-md-12 flex align-items-center">
+                <img src="assets/images/icons/datos-obtenidos.svg" alt="icono" />
+                <span class="titulo-detalle-afiliacion inline-block ml-3">Datos obtenidos</span>
+              </div>
+            </div>
+            <div class="row mx-0 mt-3">
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">RFC</span>
+                  <span class="header-label font-semibold inline-block mt-2">ECE9610253TA</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">Actividad</span>
+                  <span class="header-label font-semibold inline-block mt-2">Institución de Banca Múltiple</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">Tipo de movimiento</span>
+                  <span class="header-label font-semibold inline-block mt-2">Alta</span>
+                </div>
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="row mx-0">
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">Domicilio</span>
+                  <span class="header-label font-semibold inline-block mt-2">
+                    Av. Paseo de la Reforma, No. 510, Col. Juárez, Alcaldía Cuauhtémoc, Ciudad de México, C.P. 06600.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="row mx-0">
+              <div class="col-md-12 flex align-items-center">
+                <img src="assets/images/icons/consultar.svg" alt="icono" />
+                <span class="titulo-detalle-afiliacion inline-block ml-3">Histórico de Registro patronal</span>
+              </div>
+            </div>
+            <div class="row mx-0">
+              <div class="col-md-12">
+                <p-table
+                  [value]="historicos"
+                  dataKey="id"
+                  class="block mt-3"
+                  styleClass="tabla-historicos"
+                  [tableStyle]="{ 'min-width': '60rem' }">
+                  <ng-template pTemplate="sorticon" let-value>
+                    <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+                    <img src="assets/images/icons/order-icon.svg" alt="icon" />
+                  </ng-template>
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th pSortableColumn="registroPatronal">
+                        <div class="flex justify-content-between">
+                          Registro patronal
+                          <p-sortIcon field="registroPatronal"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="entidadFederativa">
+                        <div class="flex justify-content-between">
+                          Entidad federativa
+                          <p-sortIcon field="entidadFederativa"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="subdelegación">
+                        <div class="flex justify-content-between">
+                          Subdelegación
+                          <p-sortIcon field="subdelegacion"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="domicilio">
+                        <div class="flex justify-content-between">
+                          Domicilio
+                          <p-sortIcon field="domicilio"></p-sortIcon>
+                        </div>
+                      </th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-afiliacion>
+                    <tr>
+                      <td>{{ afiliacion.registroPatronal }}</td>
+                      <td>{{ afiliacion.entidadFederativa }}</td>
+                      <td>{{ afiliacion.subdelegacion }}</td>
+                      <td>{{ afiliacion.domicilio }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+
+  <p-panel styleClass="mt-4">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center w-full internal-border">
+        <img src="assets/images/icons/parte_demandada.svg" />
+        <span class="subtitulo-seccion ml-3 mb-3">Parte demandada</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="headericons" let-expanded>
+      <div class="flex align-items-center justify-content-center icon-container">
+        <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+        <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+      </div>
+    </ng-template>
+
+    <p-table [value]="afiliaciones" dataKey="id" styleClass="tabla-afiliacion" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nombreRazonSocial">
+            <div class="flex justify-content-between">
+              Nombre / Razón social
+              <p-sortIcon field="nombreRazonSocial"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="valor">
+            <div class="flex justify-content-between">
+              Valor
+              <p-sortIcon field="valor"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th>
+            <div class="flex justify-content-between">Consultar</div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-afiliacion let-expanded="expanded">
+        <tr>
+          <td>{{ afiliacion.nombreRazonSocial }}</td>
+          <td>{{ afiliacion.clave }}</td>
+          <td>{{ afiliacion.valor }}</td>
+          <td>{{ afiliacion.tipoRequerimiento }}</td>
+          <td class="toggle-column">
+            <div class="flex justify-content-evenly align-items-center">
+              <a class="flex justify-content-center">
+                <img src="assets/images/icons/consultar.svg" alt="icono" />
+              </a>
+              <button
+                [pRowToggler]="afiliacion"
+                type="button"
+                pButton
+                pRipple
+                class="p-button-text p-button-rounded p-button-plain"
+                [icon]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="rowexpansion" let-afiliacion>
+        <tr>
+          <td colspan="5" class="border-bottom-none">
+            <div class="row mx-0">
+              <div class="col-md-12 flex align-items-center">
+                <img src="assets/images/icons/datos-obtenidos.svg" alt="icono" />
+                <span class="titulo-detalle-afiliacion inline-block ml-3">Datos obtenidos</span>
+              </div>
+            </div>
+            <div class="row mx-0 mt-3">
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">Nombre o razón social</span>
+                  <span class="header-label font-semibold inline-block mt-2">
+                    Nueva Elektra del Milenio, S.A. de C.V.
+                  </span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">RFC</span>
+                  <span class="header-label font-semibold inline-block mt-2">ECE9610253TA</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">Actividad</span>
+                  <span class="header-label font-semibold inline-block mt-2">Institución de Banca Múltiple</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="row mx-0">
+              <div class="col-md-4 flex align-items-center">
+                <div>
+                  <span class="header-label block">Domicilio</span>
+                  <span class="header-label font-semibold inline-block mt-2">
+                    Av. Paseo de la Reforma, No. 510, Col. Juárez, Alcaldía Cuauhtémoc, Ciudad de México, C.P. 06600.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="row mx-0">
+              <div class="col-md-12 flex align-items-center">
+                <img src="assets/images/icons/consultar.svg" alt="icono" />
+                <span class="titulo-detalle-afiliacion inline-block ml-3">Histórico de Registro patronal</span>
+              </div>
+            </div>
+            <div class="row mx-0">
+              <div class="col-md-12">
+                <p-table
+                  [value]="historicos"
+                  dataKey="id"
+                  class="block mt-3"
+                  styleClass="tabla-historicos"
+                  [tableStyle]="{ 'min-width': '60rem' }">
+                  <ng-template pTemplate="sorticon" let-value>
+                    <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+                    <img src="assets/images/icons/order-icon.svg" alt="icon" />
+                  </ng-template>
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th pSortableColumn="registroPatronal">
+                        <div class="flex justify-content-between">
+                          Registro patronal
+                          <p-sortIcon field="registroPatronal"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="entidadFederativa">
+                        <div class="flex justify-content-between">
+                          Entidad federativa
+                          <p-sortIcon field="entidadFederativa"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="subdelegación">
+                        <div class="flex justify-content-between">
+                          Subdelegación
+                          <p-sortIcon field="subdelegacion"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="domicilio">
+                        <div class="flex justify-content-between">
+                          Domicilio
+                          <p-sortIcon field="domicilio"></p-sortIcon>
+                        </div>
+                      </th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-afiliacion>
+                    <tr>
+                      <td>{{ afiliacion.registroPatronal }}</td>
+                      <td>{{ afiliacion.entidadFederativa }}</td>
+                      <td>{{ afiliacion.subdelegacion }}</td>
+                      <td>{{ afiliacion.domicilio }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+
+  <p-panel styleClass="mt-4">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center w-full internal-border">
+        <img src="assets/images/icons/terceros.svg" />
+        <span class="subtitulo-seccion ml-3 mb-3">Terceros</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="headericons" let-expanded>
+      <div class="flex align-items-center justify-content-center icon-container">
+        <i class="pi pi-chevron-up icon-up" *ngIf="!expanded"></i>
+        <i class="pi pi-chevron-down icon-down" *ngIf="expanded"></i>
+      </div>
+    </ng-template>
+
+    <p-table [value]="afiliaciones" dataKey="id" styleClass="tabla-afiliacion" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="sorticon" let-value>
+        <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+        <img src="assets/images/icons/order-icon.svg" alt="icon" />
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nombreRazonSocial">
+            <div class="flex justify-content-between">
+              Nombre / Razón social
+              <p-sortIcon field="nombreRazonSocial"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="clave">
+            <div class="flex justify-content-between">
+              Clave
+              <p-sortIcon field="clave"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="valor">
+            <div class="flex justify-content-between">
+              Valor
+              <p-sortIcon field="valor"></p-sortIcon>
+            </div>
+          </th>
+          <th pSortableColumn="tipoRequerimiento">
+            <div class="flex justify-content-between">
+              Tipo de requerimiento
+              <p-sortIcon field="tipoRequerimiento"></p-sortIcon>
+            </div>
+          </th>
+          <th>
+            <div class="flex justify-content-between">Consultar</div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-afiliacion let-expanded="expanded">
+        <tr>
+          <td>{{ afiliacion.nombreRazonSocial }}</td>
+          <td>{{ afiliacion.clave }}</td>
+          <td>{{ afiliacion.valor }}</td>
+          <td>{{ afiliacion.tipoRequerimiento }}</td>
+          <td class="toggle-column">
+            <div class="flex justify-content-evenly align-items-center">
+              <a class="flex justify-content-center">
+                <img src="assets/images/icons/consultar.svg" alt="icono" />
+              </a>
+              <button
+                [pRowToggler]="afiliacion"
+                type="button"
+                pButton
+                pRipple
+                class="p-button-text p-button-rounded p-button-plain"
+                [icon]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="rowexpansion" let-afiliacion>
+        <tr>
+          <td colspan="5" class="border-bottom-none">
+            <div class="row mx-0">
+              <div class="col-md-12 flex align-items-center">
+                <img src="assets/images/icons/datos-obtenidos.svg" alt="icono" />
+                <span class="titulo-detalle-afiliacion inline-block ml-3">Datos obtenidos</span>
+              </div>
+            </div>
+            <div class="row mx-0 mt-3">
+              <div class="col-md-3 flex align-items-center">
+                <div>
+                  <span class="header-label block">UMF</span>
+                  <span class="header-label font-semibold inline-block mt-2">UMF No. 38, CDMX</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-3 flex align-items-center">
+                <div>
+                  <span class="header-label block">Tipo Pensión</span>
+                  <span class="header-label font-semibold inline-block mt-2">Enfermedad de trabajo</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-3 flex align-items-center">
+                <div>
+                  <span class="header-label block">Tipo de salario</span>
+                  <span class="header-label font-semibold inline-block mt-2">Fijo</span>
+                </div>
+                <hr class="bar-custom my-0" />
+              </div>
+              <div class="col-md-3 flex align-items-center">
+                <div>
+                  <span class="header-label block">Salario Base</span>
+                  <span class="header-label font-semibold inline-block mt-2">$ 5,670.20</span>
+                </div>
+              </div>
+            </div>
+            <hr class="my-3" />
+            <div class="row mx-0">
+              <div class="col-md-12 flex align-items-center">
+                <img src="assets/images/icons/consultar.svg" alt="icono" />
+                <span class="titulo-detalle-afiliacion inline-block ml-3">Histórico de Registro patronal</span>
+              </div>
+            </div>
+            <div class="row mx-0">
+              <div class="col-md-12">
+                <p-table
+                  [value]="historicosTerceros"
+                  dataKey="id"
+                  class="block mt-3"
+                  styleClass="tabla-historicos"
+                  [tableStyle]="{ 'min-width': '60rem' }">
+                  <ng-template pTemplate="sorticon" let-value>
+                    <!-- value puede ser 1 -1 y 0, con eso sabes si es asc, desc o default -->
+                    <img src="assets/images/icons/order-icon.svg" alt="icon" />
+                  </ng-template>
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th pSortableColumn="nombrePatron">
+                        <div class="flex justify-content-between">
+                          Nombre del patrón
+                          <p-sortIcon field="nombrePatron"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="registroPatronal">
+                        <div class="flex justify-content-between">
+                          Registro patronal
+                          <p-sortIcon field="registroPatronal"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="entidadFederativa">
+                        <div class="flex justify-content-between">
+                          Entidad federativa
+                          <p-sortIcon field="entidadFederativa"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="fechaAlta">
+                        <div class="flex justify-content-between">
+                          Fecha de alta
+                          <p-sortIcon field="fechaAlta"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="fechaBaja">
+                        <div class="flex justify-content-between">
+                          Fecha de baja
+                          <p-sortIcon field="fechaBaja"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="salarioBaseCotizacion">
+                        <div class="flex justify-content-between">
+                          Salario Base de Cotización
+                          <p-sortIcon field="salarioBaseCotizacion"></p-sortIcon>
+                        </div>
+                      </th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-afiliacion>
+                    <tr>
+                      <td>{{ afiliacion.nombrePatron }}</td>
+                      <td>{{ afiliacion.registroPatronal }}</td>
+                      <td>{{ afiliacion.entidadFederativa }}</td>
+                      <td>{{ afiliacion.fechaAlta }}</td>
+                      <td>{{ afiliacion.fechaBaja }}</td>
+                      <td>{{ afiliacion.salarioBaseCotizacion }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+
   <div class="mt-5 flex justify-content-end align-items-center">
     <p-button type="button" label="Cancelar" styleClass="p-button-outlined p-button-danger bg-white"></p-button>
     <p-button type="button" label="Guardar asignación" styleClass="p-button-primary ml-5"></p-button>

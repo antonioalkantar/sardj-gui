@@ -58,34 +58,33 @@
   }
 }
 
+.titulo-detalle-afiliacion {
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14.63px;
+  text-align: left;
+  color: #4e5b88;
+}
+
 :host ::ng-deep {
-  .p-panel .p-panel-header {
-    background: white;
-    border: none;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 16px;
+  .tabla-afiliacion.p-datatable .p-datatable-thead > tr > th {
+    background-color: #f0f2fa;
+    border-bottom: 1px solid #10a16a80;
   }
 
-  .p-panel-expanded .p-panel-header .internal-border {
-    border-bottom: 2px solid #c7eee8;
-    margin-right: -30px;
+  .tabla-afiliacion .tabla-historicos.p-datatable .p-datatable-thead > tr > th {
+    background-color: #c7eee8;
+    border-bottom: 0px;
   }
-  .p-panel .p-panel-content {
-    border: none;
-    padding-top: 20px;
-    padding-left: 16px;
-    padding-right: 16px;
+
+  .tabla-historicos {
+    border: 2px solid #edeff2;
+    border-radius: 10px;
+    overflow: hidden;
   }
-  .p-panel .p-panel-header .p-panel-header-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    transform: scale(1.5);
-  }
-  .p-panel .p-panel-header .p-panel-header-icon:focus {
-    box-shadow: none;
-  }
-  .p-panel .p-panel-header .p-panel-header-icon:enabled:hover {
-    background: white;
+
+  .tabla-afiliacion .tabla-historicos.p-datatable .p-datatable-tbody > tr:last-child > td {
+    border-bottom: 0px;
   }
 }
