@@ -1,0 +1,78 @@
+<app-title-bar route="../consultar-usuarios" label="Registro" />
+<form [formGroup]="form" class="px-4 pb-4 mt-3">
+  <div class="flex align-items-center">
+    <img src="assets/images/icons/informacion-usuario.svg" />
+    <h2 class="subtitulo-seccion ml-3">Información de usuario</h2>
+  </div>
+  <p-card class="block mt-3">
+    <div class="row mb-4 flex align-items-end">
+      <div class="col-md-3">
+        <label for="cuentaUsuario" class="control-label">Cuenta de usuario</label>
+        <input pInputText type="text" class="w-full" id="cuentaUsuario" formControlName="cuentaUsuario" />
+      </div>
+      <div class="col-md-3">
+        <label for="dominio" class="control-label">Dominio</label>
+        <p-dropdown formControlName="dominio" styleClass="w-full" [options]="dominios"></p-dropdown>
+      </div>
+      <div class="col-md-3">
+        <p-button type="button" label="Buscar" styleClass="p-button-outlined p-button-primary bg-white "></p-button>
+      </div>
+    </div>
+    <hr />
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label for="nombre" class="control-label">Nombre</label>
+        <input pInputText type="text" class="w-full" id="nombre" formControlName="nombre" />
+      </div>
+      <div class="col-md-3">
+        <label for="apellidoPaterno" class="control-label">Apellido paterno</label>
+        <input pInputText type="text" class="w-full" id="apellidoPaterno" formControlName="apellidoPaterno" />
+      </div>
+
+      <div class="col-md-3">
+        <label for="apellidoMaterno" class="control-label">Apellido materno</label>
+        <input pInputText type="text" class="w-full" id="apellidoMaterno" formControlName="apellidoMaterno" />
+      </div>
+
+      <div class="col-md-3">
+        <label for="correoElectronico" class="control-label">Correo electrónico</label>
+        <input pInputText type="text" class="w-full" id="correoElectronico" formControlName="correoElectronico" />
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label for="puestoCargo" class="control-label">Puesto cargo</label>
+        <input pInputText type="text" class="w-full" id="puestoCargo" formControlName="puestoCargo" />
+      </div>
+      <div class="col-md-3">
+        <label for="matricula" class="control-label">Matrícula (opcional)</label>
+        <input pInputText type="text" class="w-full" id="matricula" formControlName="matricula" />
+      </div>
+      <div class="col-md-3">
+        <label for="ooad" class="control-label">OOAD</label>
+        <p-dropdown formControlName="ooad" styleClass="w-full" [options]="ooads"></p-dropdown>
+      </div>
+      <div class="col-md-3">
+        <label for="perfil" class="control-label">Perfiles</label>
+        <p-multiSelect [options]="perfiles" formControlName="perfiles" styleClass="w-full" [showHeader]="false">
+          <ng-template pTemplate="footer">
+            <div class="px-4 pb-4 flex justify-content-center align-items-center cursor-auto">
+              <span class="link-no-underline cursor-pointer">
+                <img src="assets/images/icons/Icon_add_2.svg" alt="icon" />
+                <span class="inline-block ml-3">Agregar perfil (es)</span>
+              </span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+        <div class="mt-3">
+          <app-chip [value]="1" label="Abogado" (close)="onCloseChip(1)" />
+          <app-chip [value]="2" class="ml-3" label="Jefe de división" />
+        </div>
+      </div>
+    </div>
+  </p-card>
+  <div class="mt-5 flex justify-content-end align-items-center">
+    <p-button label="Cancelar registro" styleClass="p-button-outlined p-button-danger" [disabled]="false" />
+    <p-button label="Guardar registro" styleClass="p-button-primary ml-5" (onClick)="guardar()"></p-button>
+  </div>
+</form>

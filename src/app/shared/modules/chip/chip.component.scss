@@ -1,0 +1,22 @@
+.chip {
+  background-color: #d1daff80;
+  padding: 5px 9px;
+  border: 0.5px solid #4a6bee;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border-radius: 10px;
+  color: #4a6bee;
+}
+.pi-times-circle {
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.pi-times-circle:focus {
+  outline: none;
+  text-decoration: none;
+}

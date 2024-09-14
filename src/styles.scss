@@ -59,6 +59,18 @@ img {
 .link {
   color: #0c8ce9;
   text-decoration: underline;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
+}
+
+.link-no-underline {
+  color: #0c8ce9;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 16.8px;
 }
 
 .subtitulo-seccion {

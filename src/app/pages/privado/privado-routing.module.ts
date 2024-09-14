@@ -24,6 +24,11 @@ const routes: Routes = [
       },
       { path: 'detalle', loadChildren: () => import('./pages/detalle/detalle.module').then((m) => m.DetalleModule) },
       { path: 'edicion', loadChildren: () => import('./pages/edicion/edicion.module').then((m) => m.EdicionModule) },
+      {
+        path: 'registro-usuario',
+        loadChildren: () =>
+          import('./pages/registro-usuario/registro-usuario.module').then((m) => m.RegistroUsuarioModule),
+      },
     ],
   },
 ];
