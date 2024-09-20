@@ -1,0 +1,87 @@
+:host ::ng-deep {
+  .p-panel {
+    box-shadow: none;
+  }
+  .p-panel .p-panel-header .p-panel-header-icon {
+    width: 10rem;
+    transform: none;
+
+    .text-toggle {
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14px;
+      text-align: center;
+      color: #54afff;
+      display: inline-block;
+      margin-left: 6px;
+    }
+  }
+  .p-panel-content {
+    padding: 0 8px;
+  }
+
+  .p-tabview .p-tabview-nav {
+    border: none;
+  }
+
+  .p-tabview-nav li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    padding: 4px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    transition: none !important;
+    text-decoration: none;
+    margin: 0;
+
+    .title-tab {
+      display: inline-block;
+      margin-left: 6px;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14.4px;
+      text-align: center;
+      color: #7781a5;
+    }
+  }
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background-color: #10a16a;
+    padding: 4px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    transition: none !important;
+    text-decoration: none;
+    border-color: transparent;
+    color: white;
+    margin: 0;
+    .custom {
+      fill: white !important;
+    }
+    .title-tab {
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 14.4px;
+      text-align: center;
+      color: #ffffff !important;
+    }
+  }
+}
+
+.custom-icon-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5rem;
+  right: 0.75rem;
+  z-index: 1;
+}

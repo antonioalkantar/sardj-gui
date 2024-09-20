@@ -1,4 +1,8 @@
 .p-calendar {
+  &.p-calendar-disabled .p-datepicker-trigger.p-button {
+    background-color: #f0f2fa;
+    border: none;
+  }
   .p-datepicker-trigger {
     background-color: transparent;
     color: #000;

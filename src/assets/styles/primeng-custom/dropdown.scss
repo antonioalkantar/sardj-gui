@@ -9,6 +9,16 @@
   box-shadow: none;
 }
 
+.p-dropdown.p-disabled {
+  border: none;
+  background-color: #f0f2fa;
+}
+
+.p-dropdown.p-disabled .p-dropdown-label {
+  background-color: #f0f2fa;
+  border: none;
+}
+
 .p-dropdown-item {
   color: #44474c;
   font-family: Montserrat;

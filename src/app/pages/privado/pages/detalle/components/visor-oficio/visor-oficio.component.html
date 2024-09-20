@@ -1,0 +1,226 @@
+<app-title-bar route="../" label="Visor de Oficio" />
+<form class="px-4 pb-4" [formGroup]="form">
+  <div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+      <p-panel [toggleable]="true" class="block mt-4">
+        <!-- <ng-template pTemplate="header"><span class="text-primary font-semibold text-xl">Header</span></ng-template> -->
+        <ng-template pTemplate="headericons" let-collapsed>
+          <img src="assets/images/icons/icon_minimizar.svg" alt="icon" />
+          <span class="text-toggle">{{ collapsed ? 'Maximizar' : 'Minimizar' }}</span>
+        </ng-template>
+        <p-tabView (onChange)="onChangeTab($event)">
+          <p-tabPanel formGroupName="informacionGeneral">
+            <ng-template pTemplate="header">
+              <img src="assets/images/icons/inf_gral{{ indiceTabActiva === 0 ? '-activo' : '' }}.svg" alt="icon" />
+              <span class="title-tab">Inf. general</span>
+            </ng-template>
+            <div class="mt-3">
+              <label for="titulo" class="control-label">Título</label>
+              <input pInputText type="text" class="w-full" id="titulo" formControlName="titulo" />
+            </div>
+            <div class="mt-4">
+              <label for="complementoExpediente1" class="control-label">Complemento de expediente</label>
+              <textarea
+                pInputTextarea
+                type="text"
+                class="w-full"
+                id="complementoExpediente1"
+                formControlName="complementoExpediente1"></textarea>
+            </div>
+            <div class="mt-4">
+              <label for="complementoExpediente2" class="control-label">Complemento de expediente</label>
+              <textarea
+                pInputTextarea
+                type="text"
+                class="w-full"
+                id="complementoExpediente2"
+                formControlName="complementoExpediente2"></textarea>
+            </div>
+            <div class="mt-4">
+              <label for="autoridadSolicitante" class="control-label">Autoridad solicitante</label>
+              <input
+                pInputText
+                type="text"
+                class="w-full"
+                id="autoridadSolicitante"
+                formControlName="autoridadSolicitante" />
+            </div>
+            <div class="mt-4">
+              <label for="numeroOficio" class="control-label">Número de oficio</label>
+              <input pInputText type="text" class="w-full" id="numeroOficio" formControlName="numeroOficio" />
+            </div>
+            <div class="mt-4">
+              <label for="fechaOficio" class="control-label">Fecha de oficio</label>
+              <p-calendar
+                formControlName="fechaOficio"
+                [showTime]="false"
+                styleClass="w-full"
+                [readonlyInput]="true"
+                [showIcon]="true">
+                <ng-template pTemplate="triggericon">
+                  <img src="assets/images/icons/calendar.svg" />
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="mt-4">
+              <label for="fechaHoraNotificacion" class="control-label">Fecha y hora de notificación</label>
+              <p-calendar
+                formControlName="fechaHoraNotificacion"
+                [showTime]="true"
+                styleClass="w-full"
+                [readonlyInput]="true"
+                [showIcon]="true">
+                <ng-template pTemplate="triggericon">
+                  <img src="assets/images/icons/calendar.svg" />
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="mt-4">
+              <label for="fechaHoraVencimientoAdministrativo" class="control-label">
+                Fecha y hora de vencimiento administrativo
+              </label>
+              <p-calendar
+                formControlName="fechaHoraVencimientoAdministrativo"
+                [showTime]="true"
+                styleClass="w-full"
+                [readonlyInput]="true"
+                [showIcon]="true">
+                <ng-template pTemplate="triggericon">
+                  <img src="assets/images/icons/calendar.svg" />
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="mt-4">
+              <label for="fechaHoraVencimientoEfectivo" class="control-label">
+                Fecha y hora de vencimiento efectivo
+              </label>
+              <p-calendar
+                formControlName="fechaHoraVencimientoEfectivo"
+                [showTime]="true"
+                styleClass="w-full"
+                [readonlyInput]="true"
+                [showIcon]="true">
+                <ng-template pTemplate="triggericon">
+                  <img src="assets/images/icons/calendar.svg" />
+                </ng-template>
+              </p-calendar>
+            </div>
+            <div class="flex mt-6">
+              <div class="flex align-items-center mb-1">
+                <p-radioButton formControlName="diaHoraTermino" value="1" inputId="diasTermino"></p-radioButton>
+                <label for="diasTermino" class="ml-3 control-label mb-0 font-normal cursor-pointer">
+                  Días para término
+                </label>
+              </div>
+              <div class="flex align-items-center ml-3 mb-1">
+                <p-radioButton formControlName="diaHoraTermino" value="2" inputId="horasTermino"></p-radioButton>
+                <label for="horasTermino" class="ml-3 control-label mb-0 font-normal cursor-pointer">
+                  Horas de término
+                </label>
+              </div>
+            </div>
+            <div class="mt-6">
+              <label for="tipoJuicio" class="control-label">Tipo de juicio</label>
+              <p-dropdown formControlName="tipoJuicio" styleClass="w-full" [options]="tiposJuicios"></p-dropdown>
+            </div>
+            <div class="mt-4">
+              <label for="expedienteParte1" class="control-label">Expediente</label>
+              <div class="flex align-items-center">
+                <input
+                  pInputText
+                  type="text"
+                  class="w-full text-center"
+                  id="expedienteParte1"
+                  formControlName="expedienteParte1" />
+                <span class="text-3xl inline-block mx-3 gris-principal-01">/</span>
+                <input
+                  pInputText
+                  type="text"
+                  class="w-full text-center"
+                  id="expedienteParte2"
+                  formControlName="expedienteParte2" />
+                <input
+                  pInputText
+                  type="text"
+                  class="w-full text-center ml-3"
+                  id="expedienteParte3"
+                  formControlName="expedienteParte3" />
+              </div>
+            </div>
+            <div class="mt-4">
+              <label for="localizacionExpediente" class="control-label">Localización del expediente</label>
+              <span class="p-input-icon-right block">
+                <img src="assets/images/icons/Icon_search_2.svg" class="custom-icon-right" alt="icon" />
+                <input
+                  pInputText
+                  type="text"
+                  class="w-full"
+                  id="localizacionExpediente"
+                  formControlName="localizacionExpediente" />
+              </span>
+            </div>
+            <div class="mt-4">
+              <label for="digitalizarRequerimiento" class="control-label">Digitalizar requerimiento</label>
+              <span class="p-input-icon-right block">
+                <img src="assets/images/icons/icon_upload8.svg" class="custom-icon-right" alt="icon" />
+                <input
+                  pInputText
+                  type="text"
+                  class="w-full"
+                  id="digitalizarRequerimiento"
+                  formControlName="digitalizarRequerimiento" />
+              </span>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel formGroupName="demandante">
+            <ng-template pTemplate="header">
+              <img
+                src="assets/images/icons/Icon_demandante{{ indiceTabActiva === 1 ? '-activo' : '' }}.svg"
+                alt="icon" />
+              <span class="title-tab">Demandante</span>
+            </ng-template>
+
+            <div class="mt-3">
+              <label for="titulo1" class="control-label">Título</label>
+              <input pInputText type="text" class="w-full" id="titulo1" formControlName="titulo" />
+            </div>
+            <div class="mt-3">
+              <label for="Nombre1" class="control-label">Nombre</label>
+              <input pInputText type="text" class="w-full" id="Nombre1" formControlName="nombre" />
+            </div>
+            <div class="mt-3">
+              <label for="tipoRequerimiento1" class="control-label">Tipo de requerimiento</label>
+              <input
+                pInputText
+                type="text"
+                class="w-full"
+                id="tipoRequerimiento1"
+                formControlName="tipoRequerimiento" />
+            </div>
+            <div class="mt-3">
+              <label for="clave1" class="control-label">Clave</label>
+              <input pInputText type="text" class="w-full" id="clave1" formControlName="clave" />
+            </div>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <img
+                src="assets/images/icons/Icon_demandado{{ indiceTabActiva === 2 ? '-activo' : '' }}.svg"
+                alt="icon" />
+              <span class="title-tab">Demandado</span>
+            </ng-template>
+            <div></div>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <img src="assets/images/icons/icon-tercero{{ indiceTabActiva === 3 ? '-activo' : '' }}.svg" alt="icon" />
+              <span class="title-tab">Tercero</span>
+            </ng-template>
+            <div></div>
+          </p-tabPanel>
+        </p-tabView>
+      </p-panel>
+    </div>
+  </div>
+</form>
