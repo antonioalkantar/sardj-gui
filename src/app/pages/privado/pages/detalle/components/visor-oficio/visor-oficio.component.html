@@ -1,7 +1,9 @@
 <app-title-bar route="../" label="Visor de Oficio" />
 <form class="px-4 pb-4" [formGroup]="form">
   <div class="row">
-    <div class="col-md-8"></div>
+    <div class="col-md-8">
+      <div id="pdfViewer"></div>
+    </div>
     <div class="col-md-4">
       <p-panel [toggleable]="true" class="block mt-4">
         <!-- <ng-template pTemplate="header"><span class="text-primary font-semibold text-xl">Header</span></ng-template> -->
@@ -15,6 +17,9 @@
               <img src="assets/images/icons/inf_gral{{ indiceTabActiva === 0 ? '-activo' : '' }}.svg" alt="icon" />
               <span class="title-tab">Inf. general</span>
             </ng-template>
+            <div class="mt-3">
+              <p-button label="Generar pdf" styleClass="p-button-primary" (click)="generarPdf()"></p-button>
+            </div>
             <div class="mt-3">
               <label for="titulo" class="control-label">Título</label>
               <input pInputText type="text" class="w-full" id="titulo" formControlName="titulo" />

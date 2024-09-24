@@ -7,8 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "changeDetection": "OnPush"
+          "style": "scss"
         }
       },
       "root": "",
@@ -33,7 +32,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "allowedCommonJsDependencies": ["moment"]
+            "allowedCommonJsDependencies": ["moment", "jspdf-autotable", "jspdf"]
           },
           "configurations": {
             "production": {
